@@ -1,0 +1,56 @@
+Title: Electible 
+
+Description: What kind of app, what will it do, how will the user use it?
+
+We are creating a C-based interface for first-year engineering students to filter and sort first-year electives. The application will ask the user for their preferences (including subject area, course difficulty, course workload, presence of exams/midterms, and possibly other categories). The application will generate sorted lists that match the user's list of preferences. The user interface experience will be similar to that of a clothing website, where they will be able to select categories that interest them, and courses will display for just those categories, and then they will be able to filter through them. In addition to this filtering method, there will also be sorting methods similar to those of a price low to high algorithm on a clothing site, which will allow users to view courses as sorted on the metric that they selected, for example, course difficulty, low to high.
+
+What is the context in which this app will be used? 
+Engineering students will use it in their first year to help filter and sort electives to find the ones most closely aligned with their goals. We will include recommendations based on specialized academic tracks, such as Engineering and Management/Society, popular picks, and minors.
+
+What constraints are there in your design? 
+User interface: Since we are limited to exclusively using C, we have limited functionality when it comes to creating a user interface (specifically, a graphical interface). Additionally, a GUI can be difficult to implement well in C, which limits what our user interface can look like. 
+
+Data Collection: Data availability is limited due to a lack of reliable sources reviewing these courses. The sources that we are ranking these courses based on are mostly our peers and personal experience, so they may not always be the most reliable. Additionally, the course outlines and requirements are always changing and adapting, so keeping up with course structure changes and availability may affect our ability to relay accurate data. Overall, this section describes the issue of keeping up with McMaster’s course changes. 
+
+Limited Development Time: Ideally, this program would have a GUI to provide a friendlier user experience; however, due to time constraints and also our limited knowledge at this time, we might have difficulty implementing a complete and fleshed-out graphical interface within this time. 
+
+Team Members
+Yasmine Abdelmalek, 400560661, yayasso06, Role D: User Interaction & Final Review
+Khushi Ved, 400517866, khushived, Role C: Data Management & Backend Developer
+Anshika Patel, 400560584, AnshikaP-06, Role B: Soring algorithm developer
+Amanda Wu, 400602952, amandawusf, Role A: Filtering ad category logic developer 
+
+Role Description
+Filtering and Category Logic Developer: Implements the logic (interests, exam presence) to filter courses based on user preferences (subject area, workload, exams, etc.). Handles parsing user input and applying filters to the course dataset. 
+
+Sorting Algorithm Developer: Creates sorting functionality for metrics like difficulty or workload. Ensures sorting works after filtering.
+
+Data Management & Backend Developer: Handles course data storage and retrieval. Creates a structured data file (e.g., CSV or text) and functions to load and manage data efficiently.
+
+User Interaction & Final Review: Responsible for creating the terminal-based interface (menus, prompts, and output formatting) and ensuring the app is user-friendly. In addition, this role handles final integration and testing of all modules, checking for consistency, bugs, and proper functionality before submission.
+
+
+Increments 
+Increment 1: Basic CLI & Data Setup (Week 10.2)
+Sets up the environment for all future and ensures the data tests are ready for filtering and sorting 
+Create the command line interface structures (menus, prompts, and navigation)
+Create a massive data file with all the information about courses, their reviews, professor contact details, and other details. 
+
+Increment 2: Filtering Functionality (week 11.2- show to TA)
+This helps students find electives aligned with their interests 
+Implementing filtering for categories such as subject area, workload, difficulty, and exam presence. 
+Validate user inputs and ensure the filtered list updates correctly 
+Handle cases where no courses match the selected filters 
+
+Increment 3: Sorting Features (week 12.1)
+Adds flexibility and improves decision-making for students 
+Implementation of sorting algorithms for metrics like difficulty (low-to-high) or workload (high-to-low)
+Ensure sorting works on the filtered list, not the entire dataset. 
+Provides clear options for the user to choose sorting criteria 
+
+Increment 4: Final Integration and Testing (week 12.2- final)
+This ensures the app is fully functional and reliable
+Integrate CLI, filtering, sorting, and data handling into one program 
+Perform thorough testing for edge cases (invalid inputs, empty filters, large datasets)
+Polish the user interface experience (clear instructions, readable output, etc.)
+

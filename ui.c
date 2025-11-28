@@ -37,7 +37,7 @@ void clear_input_buffer(void){
 
 //seperator line
 void print_separator(void){
-    printf("-----------------------------------------------------------\n");
+    printf("----------------------------------------------------------------------------------------------------------\n");
 }
 
 //pause and wait for user
@@ -102,7 +102,7 @@ void get_string_input(const char* prompt, char* buffer, int max_length){
 //display main menu
 void display_menu(void){
     print_separator();
-    printf("%s%s---ELECTIBLE: McMaster First-Year Elective Finder ---%s\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
+    printf("%s%s--- ELECTIBLE: McMaster's First-Year Elective Finder ---%s\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
     print_separator();
     printf("\n");
     printf("%s1.%s Browse All Courses\n", COLOR_GREEN, COLOR_RESET);

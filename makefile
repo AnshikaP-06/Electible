@@ -1,12 +1,29 @@
+# Electible Makefile
+# SE 2XC3 Lab 7.2 - Team Assignment
+# Team 33
 
+CC = gcc
+CFLAGS = -std=c11 -Wall -Wextra -Iinclude
+LIBS = -lm
+
+# Source files
+SOURCES = data.c filter.c sort.c sort_code.c sort_difficulty.c sort_rating.c sort_title.c sort_workload.c sort_multi.c ui.c
+
+# Build the program
 all:
-	gcc -std=c11 -Wall -Wextra -Iinclude sort.c sort_code.c sort_difficulty.c sort_rating.c sort_title.c sort_workload.c sort_multi.c -o main
+	$(CC) $(CFLAGS) -o main $(SOURCES) $(LIBS)
 
-run:
+# Run the program
+run: all
 	./main
 
-test:
+# Run with test input
+test: all
 	printf "3\n1\n" | ./main
 
+# Clean up compiled files
 clean:
 	rm -f main
+
+# Rebuild everything
+rebuild: clean all

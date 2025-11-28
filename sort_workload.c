@@ -13,7 +13,7 @@ static int compare_course_workload(Course courses[], int i, int j, int ascending
 
 	if (courses[i].workload > courses[j].workload){
 		if (ascending){
-			return 1; 
+			return 1;
 		} else {
 			return -1;
 		}
@@ -23,7 +23,7 @@ static int compare_course_workload(Course courses[], int i, int j, int ascending
 
 void sort_by_workload(Course courses[], int count, int ascending){
 	if (courses == NULL || count <= 1){
-		return; 
+		return;
 	}
 
 	for (int i = 0; i < count - 1; i++){

@@ -351,7 +351,7 @@ void handle_user_interaction(Course** courses, int* count, const char* filename)
                     working_set=filtered;
                     working_count= filtered_count;
                     is_filtered =1;
-                    
+
                     printf("\nFiltering complete%s\n", COLOR_GREEN, COLOR_RESET);
                     display_courses(working_set, working_count);
                 }else{
@@ -369,7 +369,7 @@ void handle_user_interaction(Course** courses, int* count, const char* filename)
                 SortCriteria* sort_criteria=NULL;
                 int num_criteria=0;
                 get_sort_preferences(&sort_criteria, &num_criteria);
-                
+
                 if (sort_criteria != NULL && num_criteria > 0) {
                     sort_multi_criteria(working_set,working_count,sort_criteria,num_criteria);
                     printf("\n%sSorting complete!%s\n", COLOR_GREEN, COLOR_RESET);
@@ -378,7 +378,7 @@ void handle_user_interaction(Course** courses, int* count, const char* filename)
                 } else {
                     printf("\n%sSorting failed.%s\n", COLOR_YELLOW, COLOR_RESET);
                 }
-                
+
                 pause_for_user();
                 break;
             }

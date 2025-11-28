@@ -40,7 +40,7 @@ Course get_new_course_input(void);
 //main loop
 void handle_user_interaction(Course** courses,int* count, const char* filename);
 
-//help info 
+//help info
 void display_help(void);
 
 //recommended courses display

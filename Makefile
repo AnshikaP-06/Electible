@@ -25,7 +25,21 @@ test:
 
 # Clean up compiled files
 clean:
-	rm -f main
+	rm -f main test
+	rm -f *.gcda *.gcno *.gcov
 
 # Rebuild everything
 rebuild: clean all
+
+# Build with coverage flags
+coverage: CFLAGS += -fprofile-arcs -ftest-coverage
+coverage: LIBS += -lgcov
+coverage: clean
+	$(CC) $(CFLAGS) -o main $(SOURCES) $(LIBS)
+	$(CC) $(CFLAGS) -o test test.c data.c $(LIBS)
+	./test || true
+	./main < /dev/null || true
+	gcov *.c
+	@echo ""
+	@echo "Coverage files generated. Check *.gcov files for details."
+	@echo "Use 'make clean' to remove coverage files."

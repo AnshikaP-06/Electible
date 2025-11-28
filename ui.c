@@ -106,10 +106,10 @@ void display_menu(void){
     print_separator();
     printf("\n");
     printf("%s1.%s Browse All Courses\n", COLOR_GREEN, COLOR_RESET);
-    printf("%s2.%s Filter Courses (COMING SOON)\n", COLOR_GREEN, COLOR_RESET);
-    printf("%s3.%s Sort Courses (COMING SOON)\n",COLOR_GREEN, COLOR_RESET);
-    printf("%s4.%s Add New Course (COMING SOON)\n",COLOR_GREEN, COLOR_RESET);
-    printf("%s5.%s View Recommendations (COMING SOON)\n", COLOR_GREEN, COLOR_RESET);
+    printf("%s2.%s Filter Courses\n", COLOR_GREEN, COLOR_RESET);
+    printf("%s3.%s Sort Courses\n",COLOR_GREEN, COLOR_RESET);
+    printf("%s4.%s Add New Course\n",COLOR_GREEN, COLOR_RESET);
+    printf("%s5.%s View Recommendations\n", COLOR_GREEN, COLOR_RESET);
     printf("%s6.%s Help\n",COLOR_GREEN, COLOR_RESET);
     printf("%s7.%s Exit\n", COLOR_GREEN, COLOR_RESET);
     printf("\n");
@@ -309,8 +309,8 @@ void display_help(void){
     printf("1. Browse All Courses: View complete list of available elctives\n");
     printf("2. Filter Courses: Narrow down courses by subject, difficulty, workload, etc.\n");
     printf("3. Sort Courses: Orgamize courses by a selected field and order\n");
-    printf("4. Add New Courses: coming soon\n");
-    printf("5. Recommendations: coming soon\n");
+    printf("4. Add New Courses: \n");
+    printf("5. Recommendations: \n");
     print_separator();
 }
 

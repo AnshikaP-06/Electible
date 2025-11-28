@@ -1,0 +1,80 @@
+        -:    0:Source:sort.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "../include/filter.h"
+        -:    3:#include "../include/sort.h"
+        -:    4:
+function sort_main called 0 returned 0% blocks executed 0%
+    #####:    5:int sort_main(void) {
+    #####:    6:    Course courses[] = {
+        -:    7:        { "Intro to Computing", "COMP-100", "COMP", 2, 3, 1, 1, 4.2f, "Basics", 2025 },
+        -:    8:        { "Algorithms",         "COMP-200", "COMP", 4, 4, 1, 1, 4.8f, "Algo",   2025 },
+        -:    9:        { "Databases",          "COMP-250", "COMP", 3, 3, 0, 1, 4.5f, "DB",     2025 },
+        -:   10:        { "OS",                 "COMP-300", "COMP", 5, 5, 1, 1, 4.1f, "OS",     2025 }
+        -:   11:    };
+    #####:   12:    int n = (int)(sizeof(courses)/sizeof(courses[0]));
+        -:   13:
+        -:   14:    // print statement
+        -:   15:    int choice, order;
+    #####:   16:    printf("Choose a sorting option:\n");
+call    0 never executed
+    #####:   17:    printf("1. Difficulty\n");
+call    0 never executed
+    #####:   18:    printf("2. Workload\n");
+call    0 never executed
+    #####:   19:    printf("3. Rating\n");
+call    0 never executed
+    #####:   20:    printf("4. Course Code\n");
+call    0 never executed
+    #####:   21:    printf("5. Title\n");
+call    0 never executed
+    #####:   22:    printf("Enter choice (1-5): ");
+call    0 never executed
+    #####:   23:    scanf("%d", &choice);
+call    0 never executed
+        -:   24:
+    #####:   25:    printf("Sort order? (1 = Ascending, 0 = Descending): ");
+call    0 never executed
+    #####:   26:    scanf("%d", &order);
+call    0 never executed
+        -:   27:
+        -:   28:    //calling the functions based on the user input
+    #####:   29:    switch (choice){
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   30:    	case 1: sort_by_difficulty(courses, n, order);
+call    0 never executed
+    #####:   31:		break;
+    #####:   32:	case 2: sort_by_workload(courses, n, order);
+call    0 never executed
+    #####:   33:		break;
+    #####:   34:	case 3: sort_by_rating(courses, n, order);
+call    0 never executed
+    #####:   35:		break;
+    #####:   36:        case 4: sort_by_course_code(courses, n, order);
+call    0 never executed
+    #####:   37:		break;
+    #####:   38:        case 5: sort_by_title(courses, n, order);
+call    0 never executed
+    #####:   39:		break;
+    #####:   40:        default: printf("Invalid choice!\n"); return 1;
+call    0 never executed
+        -:   41:    }
+        -:   42:
+    #####:   43:    printf("\nSorted courses:\n");
+call    0 never executed
+    #####:   44:    for (int i = 0; i < n; ++i) {
+branch  0 never executed
+branch  1 never executed (fallthrough)
+        -:   45:        //printing the sorted list
+    #####:   46:        printf("%s (%s): diff=%d workload=%d rating=%.1f\n",
+    #####:   47:               courses[i].title, courses[i].course_code,
+    #####:   48:               courses[i].difficulty, courses[i].workload, courses[i].rating);
+call    0 never executed
+        -:   49:    }
+        -:   50:
+    #####:   51:    return 0;
+        -:   52:}

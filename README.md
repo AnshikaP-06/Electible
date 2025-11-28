@@ -13,7 +13,6 @@ Anshika Patel
 Yasmine Abdelmalek
 Amanda Wu
 
-Help Message: 
 
 How it Works:
 -Data Model: Course struct stores course details (title, code, difficulty, workload, rating, etc.)

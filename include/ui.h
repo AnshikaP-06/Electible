@@ -1,6 +1,6 @@
-// SFWRENG 2XC3: Electible
+/*SFWRENG 2XC3: Electible
 // Module D:User Interface
-// Yasmine Abdelmalek
+Yasmine Abdelmalek*/
 
 #ifndef UI_H
 #define UI_H

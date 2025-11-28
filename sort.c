@@ -2,7 +2,7 @@
 #include "../include/filter.h"
 #include "../include/sort.h"
 
-int main(void) {
+int sort_main(void) {
     Course courses[] = {
         { "Intro to Computing", "COMP-100", "COMP", 2, 3, 1, 1, 4.2f, "Basics", 2025 },
         { "Algorithms",         "COMP-200", "COMP", 4, 4, 1, 1, 4.8f, "Algo",   2025 },

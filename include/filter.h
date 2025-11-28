@@ -56,4 +56,3 @@ Course* apply_multiple_filters(Course* courses, int count, FilterCriteria criter
 FilterCriteria create_default_filter_criteria(void);
 
 #endif
-

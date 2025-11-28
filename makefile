@@ -7,7 +7,7 @@ CFLAGS = -std=c11 -Wall -Wextra -Iinclude
 LIBS = -lm
 
 # Source files
-SOURCES = data.c filter.c sort.c sort_code.c sort_difficulty.c sort_rating.c sort_title.c sort_workload.c sort_multi.c ui.c
+SOURCES = main.c data.c filter.c sort.c sort_code.c sort_difficulty.c sort_rating.c sort_title.c sort_workload.c sort_multi.c ui.c
 
 # Build the program
 all:

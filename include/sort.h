@@ -10,4 +10,3 @@ void sort_by_course_code(Course* courses, int count, int ascending);
 void sort_by_title(Course* courses, int count, int ascending);
 
 #endif
-

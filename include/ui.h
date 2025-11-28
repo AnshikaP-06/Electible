@@ -58,10 +58,10 @@ float get_float_input(const char* prompt,float min,float max);
 //strings also allowed
 void get_string_input(const char* prompt,char* buffer, int max_length);
 
-//line seperator just for clarity 
+//line seperator just for clarity
 void print_separator(void);
 
-//wait for user to keep going 
+//wait for user to keep going
 void pause_for_user(void);
 
 #endif

@@ -18,8 +18,9 @@ run: all
 	./main
 
 # Run with test input
-test: all
-	printf "3\n1\n1\n7\n7\n" | ./main
+test:
+	$(CC) $(CFLAGS) -o test test.c data.c $(LIBS)
+	./test
 
 
 # Clean up compiled files

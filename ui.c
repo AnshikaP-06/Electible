@@ -36,7 +36,7 @@ void clear_input_buffer(void){
 }
 
 //seperator line
-void print_seperator(void){
+void print_separator(void){
     printf("-----------------------------------------------------------\n");
 }
 
@@ -138,7 +138,7 @@ void display_courses(Course* courses,int count){
     //Table  header
     printf("%-4s %-10s %-40s %-6s %-6s %-6s %-9s %-6s\n",
            "#", "Code","Title","Diff","Work","Exam","Midterm", "Rating");
-    print_seperator();
+    print_separator();
 
 //display each course
     for (int i = 0; i < count; i++) {
@@ -166,9 +166,9 @@ void display_course_detail(Course course){
 
 //get filter preferences from user (stubfor now)
 FilterCriteria get_filter_preferences(void){
-    FilterCriteria critera=create_default_filter_criteria();
+    FilterCriteria criteria=create_default_filter_criteria();
 
-    printf("\n%s%S------Filter Courses------%s\n", COLOR_BOLD, COLOR_CYAN,COLOR_RESET);
+    printf("\n%s%s------Filter Courses------%s\n", COLOR_BOLD, COLOR_CYAN,COLOR_RESET);
     printf("LEave filters blank or enter -1 to skip.\n\n");
 
     //subject area filter
@@ -187,15 +187,14 @@ FilterCriteria get_filter_preferences(void){
     }
     get_string_input("Maximum difficulty (ENTER to skip): ", response, sizeof(response));
     if (strlen(response)>0){
-        criteria.min_difficulty=atoi(response);
-        if (criteria.min_difficulty<1||criteria.min_difficulty > 5) {
-            criteria.min_difficulty = -1;
+        criteria.max_difficulty=atoi(response);
+        if (criteria.max_difficulty<1||criteria.max_difficulty > 5) {
+            criteria.max_difficulty = -1;
         }
     }
 
     //workload filter//
     printf("\nFilter by workload?(1-5)\n");
-    char response[10];
     get_string_input("Minimum workloda (ENTER to skip): ", response, sizeof(response));
     if (strlen(response)>0){
         criteria.min_workload=atoi(response);
@@ -218,8 +217,8 @@ printf("2. Courses without exams\n");
 printf("3. No preference\n");
 int exam_choice =get_int_input("Choice: ",1,3);
 if (exam_choice ==1){
-    criteria.has.exam=1;
-} else if (exam_choice =2){
+    criteria.has_exam=1;
+} else if (exam_choice==2){
     criteria.has_exam=0;
 }
 
@@ -229,10 +228,10 @@ printf("1. Courses with midterms\n");
 printf("2. Courses without midterms\n");
 printf("3. No preference\n");
 int midterm_choice = get_int_input("Choice: ",1,3);
-if (midterm_chpice =-1){
-    criter.has_midterm=1;
+if (midterm_choice ==1){
+    criteria.has_midterm=1;
 }else if (midterm_choice==2){
-    criter.has_midterm=0;
+    criteria.has_midterm=0;
 }
 
 //ratinf filter
@@ -257,7 +256,7 @@ void get_sort_preferences(SortCriteria** criteria, int* num_criteria) {
     printf("4.Course Code\n");
     printf("5.Title\n");
 
-    int field_choice -git_int_input("Sort byL ",1,5);
+    int field_choice = get_int_input("Sort by: ",1,5);
 
     printf("\nSort order:\n");
     printf("1.Ascending\n");
@@ -272,23 +271,33 @@ void get_sort_preferences(SortCriteria** criteria, int* num_criteria) {
 
     (*criteria)[0].field=(SortField)(field_choice - 1);
     (*criteria)[0].order=(order_choice ==1) ? ASCENDING:DESCENDING;
-    *num_criteria=1
+    *num_criteria=1;
 }
 
 //get new course input from user (stub) MAKE SURE YOU ADD THE LOGUC LATER
 Course get_new_course_input(void){
     Course course;
-    strcpy(c.title, "Placeholder Course");
-    strcpy(c.course_code, "XXXX 1XX3");
-    strcpy(c.subject_area, "Placeholder");
-    c.difficulty = 3;
-    c.workload = 3;
-    c.has_exam = 0;
-    c.has_midterm = 0;
-    c.rating = 3.0f;
-    strcpy(c.description, "This is a placeholder course (adding courses is not implemented yet).");
-    c.year_offered=2025;
-    return c;
+    printf("\n%s%s=== Add New Course ===%s\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
+    get_string_input("Course title: ", course.title, sizeof(course.title));
+    get_string_input("Course code (e.g., SFWRENG 2XC3): ", course.course_code, sizeof(course.course_code));
+    get_string_input("Subject area: ", course.subject_area, sizeof(course.subject_area));
+
+    course.difficulty = get_int_input("Difficulty (1-5): ", 1, 5);
+    course.workload = get_int_input("Workload (1-5): ", 1, 5);
+
+    printf("Has exam? (1=Yes, 0=No): ");
+    course.has_exam = get_int_input("", 0, 1);
+
+    printf("Has midterm? (1=Yes, 0=No): ");
+    course.has_midterm = get_int_input("", 0, 1);
+
+    course.rating = get_float_input("Rating (0.0-5.0): ", 0.0f, 5.0f);
+
+    get_string_input("Description: ", course.description, sizeof(course.description));
+
+    course.year_offered = get_int_input("Year offered (e.g., 2025): ", 2020, 2030);
+
+    return course;
 }
 
 //display help info (so basic rn)
@@ -302,14 +311,35 @@ void display_help(void){
     printf("3. Sort Courses: Orgamize courses by a selected field and order\n");
     printf("4. Add New Courses: coming soon\n");
     printf("5. Recommendations: coming soon\n");
-    print_seperator();
+    print_separator();
 }
 
-//display recommended courses (stub) MAKE SURE TO COME BACK AND AD DLOGIC
+//display recommended courses
 void display_recommendations(Course* courses, int count) {
-    (void)courses;
-    (void)count;
-    printf("\nRecommendations are not implemented yet.\n");
+    printf("\n%s%s----Recommended Courses----%s\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
+    printf("Based on high ratings and moderate difficulty.\n\n");
+
+    //Filter for highly rated courses (rating >= 4.0) with moderate difficulty (1-3)
+    FilterCriteria criteria=create_default_filter_criteria();
+    criteria.min_rating= 4.0f;
+    criteria.min_difficulty=1;
+    criteria.max_difficulty=3;
+
+    int rec_count;
+    Course* recommendations=apply_multiple_filters(courses, count, criteria, &rec_count);
+
+    if (recommendations != NULL && rec_count > 0) {
+        //descending rating
+        sort_by_rating(recommendations, rec_count, 0);
+
+        //top 10 or less
+        int display_count = (rec_count < 10) ? rec_count : 10;
+        display_courses(recommendations, display_count);
+
+        free(recommendations);
+    } else {
+        printf("No recommendations found.\n");
+    }
 }
 
 
@@ -322,19 +352,22 @@ void handle_user_interaction(Course** courses, int* count, const char* filename)
     int working_count= *count;
     int is_filtered =0;
 
-    while (running){
+    while (running) {
         display_menu();
-        int choice=get_int_input("Enter choice (1-7): ", 1, 7);
 
-        switch (choice){
+        int choice = get_int_input("Enter choice (1-7): ", 1, 7);
+
+        switch (choice) {
             case MENU_BROWSE:{
-                if (is_filterd && working_set != *courses){
+                //reset full datat set
+                if (is_filtered && working_set != *courses) {
                     free(working_set);
-                    working_set= *courses;
-                    working_count = *count;
-                    is_filtered =0;
                 }
-                display_courses(working_set,working_count);
+                working_set = *courses;
+                working_count = *count;
+                is_filtered = 0;
+
+                display_courses(working_set, working_count);
                 pause_for_user();
                 break;
             }
@@ -345,14 +378,14 @@ void handle_user_interaction(Course** courses, int* count, const char* filename)
                     free(working_set);
                 }
                 int filtered_count=0;
-                Course* filtered = apply_multiple_filters(*courses, *count, criter, &filtered_count);
+                Course* filtered = apply_multiple_filters(*courses, *count, criteria, &filtered_count);
 
                 if (filtered != NULL && filtered_count>0){
                     working_set=filtered;
                     working_count= filtered_count;
                     is_filtered =1;
 
-                    printf("\nFiltering complete%s\n", COLOR_GREEN, COLOR_RESET);
+                    printf("\n%sFiltering complete%s\n", COLOR_GREEN, COLOR_RESET);
                     display_courses(working_set, working_count);
                 }else{
                     printf("\n%sNo courses match your filters.%s\n", COLOR_YELLOW, COLOR_RESET);
@@ -384,7 +417,29 @@ void handle_user_interaction(Course** courses, int* count, const char* filename)
             }
 
             case MENU_ADD:{
-                printf("\nAdd New Course feature not implemented yet.\n");
+                Course new_course = get_new_course_input();
+                int result = add_course(courses, count, new_course);
+
+                if (result == DATA_SUCCESS){
+                    printf("\n%sCourse added successfully!%s\n", COLOR_GREEN, COLOR_RESET);
+
+                    //save to file
+                    if (save_courses(*courses, *count, filename) == DATA_SUCCESS) {
+                        printf("%sChanges saved to %s.%s\n", COLOR_GREEN, filename, COLOR_RESET);
+                    } else {
+                        printf("%sWarning: Could not save to file.%s\n", COLOR_YELLOW, COLOR_RESET);
+                    }
+
+                    //Reset working set
+                    if (!is_filtered) {
+                        working_set = *courses;
+                        working_count = *count;
+                    }
+                } else{
+                    printf("\n%sError adding course: %s%s\n", COLOR_YELLOW,
+                           get_data_error_message(result), COLOR_RESET);
+                }
+
                 pause_for_user();
                 break;
             }
@@ -404,6 +459,10 @@ void handle_user_interaction(Course** courses, int* count, const char* filename)
             case MENU_EXIT:{
                 printf("\nThank you for using Electible!\n");
                 running = 0;
+
+                if (is_filtered && working_set != *courses){
+                    free(working_set);
+                }
                 break;
             }
         }

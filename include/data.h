@@ -18,7 +18,7 @@
 
 // Load courses from CSV file and return array
 
-Course* load_course(const char* filename, int* count);
+Course* load_courses(const char* filename, int* count);
 
 int save_courses(Course* courses, int count, const char* filename);
 

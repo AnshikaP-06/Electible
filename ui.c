@@ -53,17 +53,24 @@ int get_int_input(const char* prompt, int min, int max){
 
      while (!valid){
         printf("%s", prompt);
-        if (scanf("%d", &value) == 1) {
+        
+        int result=scanf("%d", &value);
+        if (result == 1){
             clear_input_buffer();
-            if (value >= min && value <= max) {
+            if (value >=min && value <= max){
                 valid =1;
-            } else {
-                printf("Input is invalid. Please enter a value between %d and %d.\n", min, max);
+            }else{
+                printf("Input is invalid. Please enter a value between %d and %d.\n",min,max);
             }
-        } else {
+        }else{
+            if (feof(stdin)) {
+                printf("\nNo more input available (EOF). Exiting.\n");
+                exit(1);
+            }
             clear_input_buffer();
             printf("Input is invalid. Please enter a number.\n");
         }
+
     }
     return value;
 }

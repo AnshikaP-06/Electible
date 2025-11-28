@@ -60,7 +60,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          chmod +x ./test_script
+          chmod +x ./test
           ./test > test_results.txt 2>&1
 
       - name: Run Coverage

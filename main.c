@@ -37,7 +37,6 @@ void display_usage(const char* program_name) {
     printf("4.Add New Courses: Add and rate courses to the exiting course. \n");
     printf("5. Recommendations: Top 10 recommended courses based on high ratings and moderate difficultly.\n");
     print_separator();
-    
     printf("Examples:\n");
     printf("  %s\n", program_name);
     printf("       Run using the default data file.\n\n");

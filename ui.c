@@ -13,7 +13,7 @@
 #include "../include/data.h"
 
 
-// ANSI color codes for terminal output (found off google)
+//ANSI color codes for terminal output (found off google)
 #define COLOR_RESET   "\033[0m"
 #define COLOR_BOLD    "\033[1m"
 #define COLOR_CYAN    "\033[36m"
@@ -33,7 +33,7 @@ void print_seperator(void){
 }
 
 //pause and wait for the user
-void pauseforuser(void){
+void pause_for_user(void){
     printf("\nPress ENTER to continue...");
     getchar();
 }
@@ -41,14 +41,14 @@ void pauseforuser(void){
 //get integer input WITHIN RANGE
 int get_int_input(const char* prompt, int min, int max){
     int value;
-    int valid = 0;
+    int valid=1;
 
-     while (!valid) {
+     while (!valid){
         printf("%s", prompt);
         if (scanf("%d", &value) == 1) {
             clear_input_buffer();
             if (value >= min && value <= max) {
-                valid = 1;
+                valid =0;
             } else {
                 printf("Input is invalid. Please enter a value between %d and %d.\n", min, max);
             }
@@ -71,47 +71,64 @@ void get_string_input(const char* prompt, char* buffer, int max_length){
 //display menu
 void display_menu(void){
     print_separator();
-    printf("ELECTIBLE: McMaster First-Year Elective Finder\n");
+    printf("%s%s===ELECTIBLE: McMaster First-Year Elective Finder ===%s\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
     print_separator();
     printf("\n");
-    printf("1.Browse All Courses\n");
-    printf("2.Filter Courses (not implemented yet)\n");
-    printf("3.Sort Courses (not implemented yet)\n");
-    printf("4.Add New Course (not implemented yet)\n");
-    printf("5.View Recommendations (not implemented yet)\n");
-    printf("6.Help\n");
-    printf("7.Exit\n");
+    printf("1.Browse All Courses\n", COLOR_GREEN, COLOR_RESET);
+    printf("2.Filter Courses (COMING SOON)\n", COLOR_GREEN, COLOR_RESET);
+    printf("3.Sort Courses (COMING SOON)\n",COLOR_GREEN, COLOR_RESET);
+    printf("4.Add New Course (COMING SOON)\n",COLOR_GREEN, COLOR_RESET);
+    printf("5.View Recommendations (COMING SOON)\n", COLOR_GREEN, COLOR_RESET);
+    printf("6.Help\n",COLOR_GREEN, COLOR_RESET);
+    printf("7.Exit\n", COLOR_GREEN, COLOR_RESET);
     printf("\n");
+}
+
+static void display_course_row(Course course, int index) {
+    printf("%-4d %-10s %-40s %4d/5  %4d/5  %s     %s         %.1f/5\n",
+           index +1,
+           course.course_code,
+           course.title,
+           course.difficulty,
+           course.workload,
+           course.has_exam ? "Yes" : "No ",
+           course.has_midterm ? "Yes" : "No ",
+           course.rating);
 }
 
 //display list of courses
 void display_courses(Course* courses,int count){
     if (courses==NULL ||count <= 0){
-        printf("\nNo courses to display.\n");
+        printf("\n%sNo courses to display.%s\n");
         return;
     }
-    printf("\nFound %d courses:\n\n",count);
+    printf("\n%s%sFound %d courses:%s\n\n", COLOR_BOLD, COLOR_BLUE, count, COLOR_RESET);
+    printf("%-4s %-10s %-40s %-6s %-6s %-6s %-9s %-6s\n",
+           "#", "Code","Title","Diff","Work","Exam","Midterm", "Rating");
+    print_seperator();
 
-    for (int i=0; i < count; i++){
-        printf("%d. %s - %s\n",
-               i + 1,
-               courses[i].course_code,
-               courses[i].title);
+    for (int i = 0; i < count; i++) {
+        display_course_row(courses[i], i);
     }
+
     printf("\n");
 }
 
+
 //display info for a single course
-void display_courseinfo(Course course){
+void display_course_detail(Course course){
     print_separator();
-    printf("%s (%s)\n", course.title, course.course_code);
-    printf("Subject Area: %s\n", course.subject_area);
-    printf("Difficulty:   %d/5\n", course.difficulty);
-    printf("Workload:     %d/5\n", course.workload);
-    printf("Rating:       %.1f/5\n", course.rating);
+    printf("%s%s%s%s\n",COLOR_BOLD,COLOR_CYAN,course.title,COLOR_RESET);
+    printf("Course Code:     %s\n", course.course_code);
+    printf("Subject Area:    %s\n",course.subject_area);
+    printf("Difficulty:      %d/5\n",course.difficulty);
+    printf("Workload:        %d/5\n", course.workload);
+    printf("Has Exam:        %s\n",course.has_exam ? "Yes" : "No");
+    printf("Has Midterm:     %s\n",course.has_midterm ? "Yes" : "No");
+    printf("Rating:          %.1f/5\n", course.rating);
+    printf("\nDescription:\n%s\n",course.description);
     print_separator();
 }
-
 
 //get filter preferences from user (stubfor now)
 FilterCriteria get_filter_preferences(void){
@@ -147,13 +164,12 @@ Course get_new_course_input(void){
 //display help info (so basic rn)
 void display_help(void){
     print_separator();
-    printf("HELP\n\n");
-    printf("This is a simple first version of Electible.\n");
-    printf("Currently, you can:\n");
-    printf("-Browse all loaded courses\n");
-    printf("-Exit the program\n");
-    printf("Other features will be added in later versions.\n");
-    print_separator();
+    printf("%s%s----HELP----%s\n\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
+    printf("%sWelcome to Electible!%s\n\n", COLOR_BOLD, COLOR_RESET);
+    printf("This app will help Mcmaster first year eng students to find and explore elective based on their preferences.\n\n");
+     printf("- Browse All Courses: %sImplemented%s\n", COLOR_GREEN, COLOR_RESET);
+    printf("- Filter, Sort, Add, Recommendations: %sPlanned%s\n\n", COLOR_YELLOW, COLOR_RESET);
+    print_seperator();
 }
 
 //display recommended courses (stub)

@@ -19,7 +19,8 @@ run: all
 
 # Run with test input
 test: all
-	printf "3\n1\n1\n7\n" | ./main
+	printf "3\n1\n1\n7\n7\n" | ./main
+
 
 # Clean up compiled files
 clean:

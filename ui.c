@@ -41,14 +41,14 @@ void pause_for_user(void){
 //get integer input WITHIN RANGE
 int get_int_input(const char* prompt, int min, int max){
     int value;
-    int valid=1;
+    int valid=0;
 
      while (!valid){
         printf("%s", prompt);
         if (scanf("%d", &value) == 1) {
             clear_input_buffer();
             if (value >= min && value <= max) {
-                valid =0;
+                valid =1;
             } else {
                 printf("Input is invalid. Please enter a value between %d and %d.\n", min, max);
             }

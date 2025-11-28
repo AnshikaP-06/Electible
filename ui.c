@@ -169,10 +169,10 @@ FilterCriteria get_filter_preferences(void){
     FilterCriteria criteria=create_default_filter_criteria();
 
     printf("\n%s%s------Filter Courses------%s\n", COLOR_BOLD, COLOR_CYAN,COLOR_RESET);
-    printf("LEave filters blank or enter -1 to skip.\n\n");
+    printf("Leave filters blank or enter -1 to skip.\n\n");
 
     //subject area filter
-    printf("FIlter by subject area?(e.g., Math, Business,etc.)\n");
+    printf("Filter by subject area? (Options: Math, Business, etc.)\n");
     get_string_input("Subject area (ENTER to skip): ", criteria.subject_area, sizeof(criteria.subject_area));
 
     //dificulty
@@ -195,7 +195,7 @@ FilterCriteria get_filter_preferences(void){
 
     //workload filter//
     printf("\nFilter by workload?(1-5)\n");
-    get_string_input("Minimum workloda (ENTER to skip): ", response, sizeof(response));
+    get_string_input("Minimum workload (ENTER to skip): ", response, sizeof(response));
     if (strlen(response)>0){
         criteria.min_workload=atoi(response);
         if (criteria.min_workload<1 ||criteria.min_workload > 5) {
@@ -306,11 +306,11 @@ void display_help(void){
     printf("%s%s----HELP----%s\n\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
     printf("%sWelcome to Electible!%s\n\n", COLOR_BOLD, COLOR_RESET);
     printf("This app will help Mcmaster first year eng students to find and explore elective based on their preferences.\n\n");
-    printf("1. Browse All Courses: View complete list of available elctives\n");
-    printf("2. Filter Courses: Narrow down courses by subject, difficulty, workload, etc.\n");
-    printf("3. Sort Courses: Orgamize courses by a selected field and order\n");
-    printf("4. Add New Courses: \n");
-    printf("5. Recommendations: \n");
+    printf("1.Browse All Courses: View complete list of available elctives.\n");
+    printf("2.Filter Courses: Narrow down courses by subject, difficulty, workload, etc.\n");
+    printf("3.Sort Courses: Organize courses by a selected field and order.\n");
+    printf("4.Add New Courses: Add and rate courses to the exiting course. \n");
+    printf("5. Recommendations: Top 10 recommended courses based on high ratings and moderate difficultly.\n");
     print_separator();
 }
 

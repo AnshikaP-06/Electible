@@ -19,14 +19,13 @@ void display_usage(const char* program_name) {
     printf("Usage Explanation:\n");
     printf("Running this program launches the Electible interactive menu system.\n");
     printf("Once started, you can browse courses, apply filters, sort results,add new courses, or view recommendations.\n\n");
-  
     printf("Arguments:\n");
-printf("  data_file\n");
-printf("      The CSV must follow Electible's expected format:\n");
-printf("        - One course per line\n");
-printf("        - Fields separated by commas\n");
-printf("        - Columns (in order):\n");
-printf("            Course Code, Title, Subject, Difficulty, Workload, Rating\n");
+    printf("  data_file\n");
+    printf("      The CSV must follow Electible's expected format:\n");
+    printf("        - One course per line\n");
+    printf("        - Fields separated by commas\n");
+    printf("        - Columns (in order):\n");
+    printf("            Course Code, Title, Subject, Difficulty, Workload, Rating\n");
 
     printf("Options:\n");
     printf("  --help       Show this help message\n\n");

@@ -53,7 +53,6 @@ int get_int_input(const char* prompt, int min, int max){
 
      while (!valid){
         printf("%s", prompt);
-        
         int result=scanf("%d", &value);
         if (result == 1){
             clear_input_buffer();

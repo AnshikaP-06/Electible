@@ -11,6 +11,7 @@ int sort_main(void) {
     };
     int n = (int)(sizeof(courses)/sizeof(courses[0]));
 
+    // print statement
     int choice, order;
     printf("Choose a sorting option:\n");
     printf("1. Difficulty\n");
@@ -24,6 +25,7 @@ int sort_main(void) {
     printf("Sort order? (1 = Ascending, 0 = Descending): ");
     scanf("%d", &order);
 
+    //calling the functions based on the user input 
     switch (choice){
     	case 1: sort_by_difficulty(courses, n, order);
 		break;
@@ -40,6 +42,7 @@ int sort_main(void) {
 
     printf("\nSorted courses:\n");
     for (int i = 0; i < n; ++i) {
+        //printing the sorted list 
         printf("%s (%s): diff=%d workload=%d rating=%.1f\n",
                courses[i].title, courses[i].course_code,
                courses[i].difficulty, courses[i].workload, courses[i].rating);

@@ -305,7 +305,7 @@ void display_help(void){
     print_seperator();
 }
 
-//display recommended courses (stub) MAKE SURE TO COME BACK AND AD DLOGIC 
+//display recommended courses (stub) MAKE SURE TO COME BACK AND AD DLOGIC
 void display_recommendations(Course* courses, int count) {
     (void)courses;
     (void)count;

@@ -20,24 +20,24 @@ int main(void) {
     printf("5. Title\n");
     printf("Enter choice (1-5): ");
     scanf("%d", &choice);
-    
+
     printf("Sort order? (1 = Ascending, 0 = Descending): ");
     scanf("%d", &order);
 
     switch (choice){
     	case 1: sort_by_difficulty(courses, n, order);
 		break;
-	case 2: sort_by_workload(courses, n, order); 
+	case 2: sort_by_workload(courses, n, order);
 		break;
-	case 3: sort_by_rating(courses, n, order); 
+	case 3: sort_by_rating(courses, n, order);
 		break;
-        case 4: sort_by_course_code(courses, n, order); 
+        case 4: sort_by_course_code(courses, n, order);
 		break;
-        case 5: sort_by_title(courses, n, order); 
+        case 5: sort_by_title(courses, n, order);
 		break;
         default: printf("Invalid choice!\n"); return 1;
     }
-    
+
     printf("\nSorted courses:\n");
     for (int i = 0; i < n; ++i) {
         printf("%s (%s): diff=%d workload=%d rating=%.1f\n",

@@ -93,7 +93,7 @@ void escape_csv_field(char* dest, const char* src, int max_len) {
 
         for (const char* p = src; *p && dest_idx < max_len - 3; p++) {
             if (*p == '"') {
-                dest[dest_idx++] = '"';  
+                dest[dest_idx++] = '"';
             }
             dest[dest_idx++] = *p;
         }

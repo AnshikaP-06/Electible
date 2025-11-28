@@ -21,6 +21,14 @@
 #define COLOR_YELLOW  "\033[33m"
 #define COLOR_BLUE    "\033[34m"
 
+/*disable colors on windows by default(if the colours dont work I'll uncomment)*/
+/*#define COLOR_RESET ""
+#define COLOR_BOLD ""
+#define COLOR_CYAN ""
+#define COLOR_GREEN ""
+#define COLOR_YELLOW ""
+#define COLOR_BLUE ""*/
+
 //Clear input buffer
 void clear_input_buffer(void){
     int c;
@@ -32,7 +40,7 @@ void print_seperator(void){
     printf("-----------------------------------------------------------\n");
 }
 
-//pause and wait for the user
+//pause and wait for user
 void pause_for_user(void){
     printf("\nPress ENTER to continue...");
     getchar();
@@ -60,6 +68,7 @@ int get_int_input(const char* prompt, int min, int max){
     return value;
 }
 
+//get float input within the range
 float get_float_input (const char* prompt, float min, float max){
     float value;
     int valid =0;
@@ -85,11 +94,12 @@ float get_float_input (const char* prompt, float min, float max){
 void get_string_input(const char* prompt, char* buffer, int max_length){
     printf("%s",prompt);
     if (fgets(buffer,max_length,stdin) != NULL){
+        //removing newline
         buffer[strcspn(buffer,"\n")]='\0';
     }
 }
 
-//display menu
+//display main menu
 void display_menu(void){
     print_separator();
     printf("%s%s---ELECTIBLE: McMaster First-Year Elective Finder ---%s\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
@@ -105,6 +115,7 @@ void display_menu(void){
     printf("\n");
 }
 
+//display course in tablen r0w format
 static void display_course_row(Course course, int index) {
     printf("%-4d %-10s %-40s %4d/5  %4d/5  %s     %s         %.1f/5\n",
            index +1,
@@ -117,17 +128,19 @@ static void display_course_row(Course course, int index) {
            course.rating);
 }
 
-//display list of courses
+//display list of courses in table
 void display_courses(Course* courses,int count){
     if (courses==NULL ||count <= 0){
-        printf("\n%sNo courses to display.%s\n");
+        printf("\n%sNo courses to display.%s\n", COLOR_YELLOW, COLOR_RESET);
         return;
     }
     printf("\n%s%sFound %d courses:%s\n\n", COLOR_BOLD, COLOR_BLUE, count, COLOR_RESET);
+    //Table  header
     printf("%-4s %-10s %-40s %-6s %-6s %-6s %-9s %-6s\n",
            "#", "Code","Title","Diff","Work","Exam","Midterm", "Rating");
     print_seperator();
 
+//display each course
     for (int i = 0; i < count; i++) {
         display_course_row(courses[i], i);
     }
@@ -153,52 +166,52 @@ void display_course_detail(Course course){
 
 //get filter preferences from user (stubfor now)
 FilterCriteria get_filter_preferences(void){
-    printf("\nFilter Courses: not implemented yet.\n");
-    FilterCriteria criteria =create_default_filter_criteria();
+    FilterCriteria critera=create_default_filter_criteria();
 
-    printf("\n%s%S---Filter Courses---%s\n", COLOR_BOLD, COLOR_CYAN,COLOR_RESET);
-    print("Leave filters blank or enter -1 to skip.\n\n");
-    printf("Filter by subject area?\n");
-    get_string_input("Subject area (or press ENTER to skip):", criteria.subject_area, sizeof(criteria.subject_area));
+    printf("\n%s%S------Filter Courses------%s\n", COLOR_BOLD, COLOR_CYAN,COLOR_RESET);
+    printf("LEave filters blank or enter -1 to skip.\n\n");
 
-    char response [32];
+    //subject area filter
+    printf("FIlter by subject area?(e.g., Math, Business,etc.)\n");
+    get_string_input("Subject area (ENTER to skip): ", criteria.subject_area, sizeof(criteria.subject_area));
 
-    printf("\nFilter by difficulty? (1-5)\n");
-    get_string_input("Minomum difficuly (ENTER to skip):", response, sizeof(response));
-
-    if(strlen(response)>0){
+    //dificulty
+    printf("\nFilter by difficulty?(1-5)\n");
+    char response[10];
+    get_string_input("Minimum difficulty (ENTER to skip): ", response, sizeof(response));
+    if (strlen(response)>0){
         criteria.min_difficulty=atoi(response);
-        if (criteria.min_difficulty <1 || criter.min_difficulty >5){
-            criteria.min_difficulty=-1;
+        if (criteria.min_difficulty<1 ||criteria.min_difficulty > 5) {
+            criteria.min_difficulty = -1;
+        }
+    }
+    get_string_input("Maximum difficulty (ENTER to skip): ", response, sizeof(response));
+    if (strlen(response)>0){
+        criteria.min_difficulty=atoi(response);
+        if (criteria.min_difficulty<1||criteria.min_difficulty > 5) {
+            criteria.min_difficulty = -1;
         }
     }
 
-    get_string_input("Maximum difficulty (ENTER to skip):", response, sizeof(response));
-    if(strlen(response)>0){
-        criteria.min_difficulty=atoi(response);
-        if (criteria.min_difficulty <1 || criter.min_difficulty >5){
-            criteria.min_difficulty=-1;
-        }
-    }
-
-    printf("\nFilter by workload? (1-5)\n");
-    get_string_input("Minimum workload (ENTER to skip):", response, sizeof(response));
-    if(strlen(response)>0){
+    //workload filter//
+    printf("\nFilter by workload?(1-5)\n");
+    char response[10];
+    get_string_input("Minimum workloda (ENTER to skip): ", response, sizeof(response));
+    if (strlen(response)>0){
         criteria.min_workload=atoi(response);
-        if (criteria.min_workload <1 || criter.min_workload >5){
-            criteria.min_workload=-1;
+        if (criteria.min_workload<1 ||criteria.min_workload > 5) {
+            criteria.min_workload = -1;
         }
     }
-
-    get_string_input("Maximum workload (ENTER to skip):", response, sizeof(response));
-    if(strlen(response)>0){
+    get_string_input("Maximum workload (ENTER to skip): ", response, sizeof(response));
+    if (strlen(response)>0){
         criteria.max_workload=atoi(response);
-        if (criteria.max_workload <1 || criter.max_workload >5){
-            criteria.max_workload=-1;
+        if (criteria.max_workload<1 ||criteria.max_workload >5) {
+            criteria.max_workload = -1;
         }
     }
 
-
+//exam filter
 printf("\nFilter by exam presence?\n");
 printf("1. Courses with exams\n");
 printf("2. Courses without exams\n");
@@ -210,6 +223,7 @@ if (exam_choice ==1){
     criteria.has_exam=0;
 }
 
+//midterm filter
 printf("\nFilter by midterm presence?\n");
 printf("1. Courses with midterms\n");
 printf("2. Courses without midterms\n");
@@ -221,6 +235,7 @@ if (midterm_chpice =-1){
     criter.has_midterm=0;
 }
 
+//ratinf filter
 printf("\nFilter by minimum rating? (0.0-5.0)\n");
     get_string_input("Minimum rating (ENTER to skip):", response, sizeof(response));
     if (strlen(response) >0){
@@ -236,11 +251,11 @@ printf("\nFilter by minimum rating? (0.0-5.0)\n");
 void get_sort_preferences(SortCriteria** criteria, int* num_criteria) {
     printf("\n%s%s---Sort Courses---%s\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
     printf("Select sort field:\n");
-    printf("1. Difficulty\n");
-    printf("2. Workload\n");
-    printf("3. Rating\n");
-    printf("4. Course Code\n");
-    printf("5. Title\n");
+    printf("1.Difficulty\n");
+    printf("2.Workload\n");
+    printf("3.Rating\n");
+    printf("4.Course Code\n");
+    printf("5.Title\n");
 
     int field_choice -git_int_input("Sort byL ",1,5);
 
@@ -257,16 +272,12 @@ void get_sort_preferences(SortCriteria** criteria, int* num_criteria) {
 
     (*criteria)[0].field=(SortField)(field_choice - 1);
     (*criteria)[0].order=(order_choice ==1) ? ASCENDING:DESCENDING;
-    *num_criteria=1;
+    *num_criteria=1
 }
 
-    *criteria =NULL;
-    *num_criteria = 0;
-}
-
-//get new course input from user (stub)
+//get new course input from user (stub) MAKE SURE YOU ADD THE LOGUC LATER
 Course get_new_course_input(void){
-    Course c;
+    Course course;
     strcpy(c.title, "Placeholder Course");
     strcpy(c.course_code, "XXXX 1XX3");
     strcpy(c.subject_area, "Placeholder");
@@ -294,7 +305,7 @@ void display_help(void){
     print_seperator();
 }
 
-//display recommended courses (stub)
+//display recommended courses (stub) MAKE SURE TO COME BACK AND AD DLOGIC
 void display_recommendations(Course* courses, int count) {
     (void)courses;
     (void)count;
@@ -340,7 +351,7 @@ void handle_user_interaction(Course** courses, int* count, const char* filename)
                     working_set=filtered;
                     working_count= filtered_count;
                     is_filtered =1;
-                    
+
                     printf("\nFiltering complete%s\n", COLOR_GREEN, COLOR_RESET);
                     display_courses(working_set, working_count);
                 }else{
@@ -358,7 +369,7 @@ void handle_user_interaction(Course** courses, int* count, const char* filename)
                 SortCriteria* sort_criteria=NULL;
                 int num_criteria=0;
                 get_sort_preferences(&sort_criteria, &num_criteria);
-                
+
                 if (sort_criteria != NULL && num_criteria > 0) {
                     sort_multi_criteria(working_set,working_count,sort_criteria,num_criteria);
                     printf("\n%sSorting complete!%s\n", COLOR_GREEN, COLOR_RESET);
@@ -367,7 +378,7 @@ void handle_user_interaction(Course** courses, int* count, const char* filename)
                 } else {
                     printf("\n%sSorting failed.%s\n", COLOR_YELLOW, COLOR_RESET);
                 }
-                
+
                 pause_for_user();
                 break;
             }

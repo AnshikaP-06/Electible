@@ -26,7 +26,7 @@ test:
 # Clean up compiled files
 clean:
 	rm -f main test
-	rm -f *.gcda *.gcno *.gcov
+	rm -f *.gcda *.gcno *.gcov main-*.gcda main-*.gcno test-*.gcda test-*.gcno
 
 # Rebuild everything
 rebuild: clean all
@@ -39,7 +39,7 @@ coverage: clean
 	$(CC) $(CFLAGS) -o test test.c data.c $(LIBS)
 	./test || true
 	./main < /dev/null || true
-	gcov *.c
+	gcov main-*.gcda test-*.gcda 2>/dev/null || gcov *.c
 	@echo ""
 	@echo "Coverage files generated. Check *.gcov files for details."
 	@echo "Use 'make clean' to remove coverage files."

@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "include/data.h"
 
-int main(void) {
+int test_main(void) {
     int count = 0;
 
     // Try to load the normal data file

@@ -45,6 +45,42 @@ jobs:
       - name: Clean
         run: make clean
 
+  test-and-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install GCC and gcov
+        run: sudo apt-get update && sudo apt-get install -y gcc build-essential
+
+      - name: Build with coverage
+        run: |
+          make coverage
+
+      - name: Run Tests
+        run: |
+          chmod +x ./test
+          ./test > test_results.txt 2>&1
+
+      - name: Run Coverage
+        run: make coverage > gcov.txt
+
+      - name: Upload Test Results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test Results
+          path: ./test_results.txt
+
+      - name: Upload Coverage Reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Coverage Reports
+          path: |
+            *.txt
+
   quality:
     name: Static checks
     runs-on: ubuntu-latest

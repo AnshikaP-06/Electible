@@ -1,7 +1,7 @@
 /*
  * sort_difficulty.c
  * Implements sorting of course arrays by the difficulty fieldusing selection sort
- * Auhor: Anshika Patel 
+ * Auhor: Anshika Patel
  * Date: 2025-12-03
  * Version: v2.0.0
 */
@@ -13,12 +13,12 @@
 /*
  * Compare_course_difficulty
  * compates difficulty of two elements (i and j index)
- * Paramters: 
+ * Paramters:
  *      - courses: arrays of course
- *      - i: index of the first element to compare 
- *      - j: index of the second element to compate 
- *      - ascending: 1 for ascending order; 0 for descending order 
- * Returns: 
+ *      - i: index of the first element to compare
+ *      - j: index of the second element to compate
+ *      - ascending: 1 for ascending order; 0 for descending order
+ * Returns:
  *      - negative int if courses[i] should come before courses[j]
  *      - positive if courses[i] should come after courses[j]
  *      - 0 if equal difficulty
@@ -36,10 +36,10 @@ static int compare_course_difficulty(Course courses[], int i, int j, int ascendi
 /*
  * sort_by_difficulty
  * sorts the array of course by difficulty using selection sort
- * Parameters: 
+ * Parameters:
  *      - courses: arrays of courses to sort
- *      - count: number of elements 
- *      - ascending: 1 for ascending order; 0 for descending order 
+ *      - count: number of elements
+ *      - ascending: 1 for ascending order; 0 for descending order
 */
 void sort_by_difficulty(Course courses[], int count, int ascending) {
     if (courses == NULL || count <= 1) {
@@ -54,7 +54,7 @@ void sort_by_difficulty(Course courses[], int count, int ascending) {
                 bestIndex = j;
             }
         }
-        //swap into position i if necessary 
+        //swap into position i if necessary
         if (bestIndex != i) {
             Course tmp = courses[i];
             courses[i] = courses[bestIndex];

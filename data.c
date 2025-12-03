@@ -19,9 +19,9 @@ static void remove_quotes(char* str);
 
 /**
  * Trims any leading or trailing whitespace from a string
- * 
+ *
  * The function modifies the input memory; where if the string is entirely whitespace, it becomes an empty string.
- * 
+ *
  */
 static void trim_whitespace(char* str) {
 	if (str == NULL) return;
@@ -44,11 +44,11 @@ static void trim_whitespace(char* str) {
 
 /**
  * Removes a single pairs of surrounding double quotes from a string
- * 
+ *
  * The function identifies if the first and last characters of the string are double quotes
  * If so, it removes them by shifting the content of the string
  * Otherwise, the string is not unchanged.
- * 
+ *
  */
 static void remove_quotes(char* str) {
 	if (str == NULL) return;
@@ -63,10 +63,10 @@ static void remove_quotes(char* str) {
 
 /**
  * Parses a CSV line into fields
- * 
+ *
  * This parser handles fields that can be wrapped in double quotes
  * Commas inside quoted fields are counted as a part of the field
- * 
+ *
  */
 int parse_csv_line(char* line, char** fields, int max_fields) {
 	int field_count = 0;
@@ -103,11 +103,11 @@ int parse_csv_line(char* line, char** fields, int max_fields) {
 
 /**
  * Escapes a string field for CSV output
- * 
- * If the source string contains commas, double quotes, or newlines, the result is wrapped 
+ *
+ * If the source string contains commas, double quotes, or newlines, the result is wrapped
  * in double quotes, and any internal double quotes are escaped by doubling them
  * Otherwise, the source string is copied as-is
- * 
+ *
  */
 void escape_csv_field(char* dest, const char* src, int max_len) {
 	int needs_quotes = 0;
@@ -141,62 +141,81 @@ void escape_csv_field(char* dest, const char* src, int max_len) {
 
 /**
  * Validates that the fields of a Course struct are in valid ranges
- * 
- * This function checks that each string fields are not empty 
+ *
+ * This function checks that each string fields are not empty
  * and that numeric fields are within expected bounds
  * For example the difficulty and workload between 1 and 5, rating between 0.0 and 5.0
- * 
+ *
  */
+// int validate_course(Course course) {
+// 	if (strlen(course.course_code) == 0) {
+// 		return DATA_ERROR_VALIDATION;
+// 	}
+
+// 	if (strlen(course.title) == 0) {
+// 			return DATA_ERROR_VALIDATION;
+// 	}
+
+// 	if (strlen(course.subject_area) == 0) {
+// 			return DATA_ERROR_VALIDATION;
+// 	}
+
+// 	if (course.difficulty < 1 || course.difficulty > 5) {
+// 			return DATA_ERROR_VALIDATION;
+// 	}
+
+// 	if (course.workload < 1 || course.workload > 5) {
+// 			return DATA_ERROR_VALIDATION;
+// 	}
+
+// 	if (course.has_exam != 0 && course.has_exam != 1) {
+// 			return DATA_ERROR_VALIDATION;
+// 	}
+
+// 	if (course.has_midterm != 0 && course.has_midterm != 1) {
+// 			return DATA_ERROR_VALIDATION;
+// 	}
+
+// 	if (course.rating < 0.0 || course.rating > 5.0) {
+// 			return DATA_ERROR_VALIDATION;
+// 	}
+
+// 	if (course.year_offered < 2020 || course.year_offered > 2030) {
+// 			return DATA_ERROR_VALIDATION;
+// 	}
+
+// 	return DATA_SUCCESS;
+
+// }
+
+
 int validate_course(Course course) {
-	if (strlen(course.course_code) == 0) {
-		return DATA_ERROR_VALIDATION;
-	}
+    if (strlen(course.course_code) == 0 ||
+        strlen(course.title) == 0 ||
+        strlen(course.subject_area) == 0) {
+        return DATA_ERROR_VALIDATION;
+    }
 
-	if (strlen(course.title) == 0) {
-			return DATA_ERROR_VALIDATION;
-	}
-
-	if (strlen(course.subject_area) == 0) {
-			return DATA_ERROR_VALIDATION;
-	}
-
-	if (course.difficulty < 1 || course.difficulty > 5) {
-			return DATA_ERROR_VALIDATION;
-	}
-
-	if (course.workload < 1 || course.workload > 5) {
-			return DATA_ERROR_VALIDATION;
-	}
-
-	if (course.has_exam != 0 && course.has_exam != 1) {
-			return DATA_ERROR_VALIDATION;
-	}
-
-	if (course.has_midterm != 0 && course.has_midterm != 1) {
-			return DATA_ERROR_VALIDATION;
-	}
-
-	if (course.rating < 0.0 || course.rating > 5.0) {
-			return DATA_ERROR_VALIDATION;
-	}
-
-	if (course.year_offered < 2020 || course.year_offered > 2030) {
-			return DATA_ERROR_VALIDATION;
-	}
-
+    if (course.difficulty < 1 || course.difficulty > 5 ||
+        course.workload < 1 || course.workload > 5 ||
+        (course.has_exam != 0 && course.has_exam != 1) ||
+        (course.has_midterm != 0 && course.has_midterm != 1) ||
+        course.rating < 0.0 || course.rating > 5.0 ||
+        course.year_offered < 2020 || course.year_offered > 2030) {
+        return DATA_ERROR_VALIDATION;
+    }
 	return DATA_SUCCESS;
-
 }
 
 
 /**
- * 
- * Loads Course records from a CSV file 
- * 
+ *
+ * Loads Course records from a CSV file
+ *
  * Each line in the file is parsed into a Course struct
  * Lines with insufficient fields or invalid data are skipped with a warning
  * The function returns a dynamically allocated array of Course structs
- * 
+ *
  */
 Course* load_courses(const char* filename, int* count) {
 	FILE* file = fopen(filename, "r");
@@ -236,7 +255,7 @@ Course* load_courses(const char* filename, int* count) {
 	        fprintf(stderr, "Warning: Skipping line %d - insufficient fields\n", line_number);
         	continue;
 
-	}
+		}
 
 		if (*count >= capacity) {
 			capacity *= 2;
@@ -256,6 +275,10 @@ Course* load_courses(const char* filename, int* count) {
 		course.title[sizeof(course.title) - 1] = '\0';
 
 
+		strncpy(course.course_code, fields[1], sizeof(course.course_code) - 1);
+        course.course_code[sizeof(course.course_code) - 1] = '\0';
+
+
 		strncpy(course.subject_area, fields[2], sizeof(course.subject_area) - 1);
 		course.subject_area[sizeof(course.subject_area) - 1] = '\0';
 
@@ -268,48 +291,24 @@ Course* load_courses(const char* filename, int* count) {
 		strncpy(course.description, fields[8], sizeof(course.description) - 1);
 		course.description[sizeof(course.description) - 1] = '\0';
 
+		course.year_offered = atoi(fields[9]);
 
-		fclose(file);
-		return courses;
+
+		if (validate_course(course) != DATA_SUCCESS) {
+            fprintf(stderr, "Warning: Skipping line %d - validation failed\n", line_number);
+            continue;
+        }
+
+
+		courses[*count] = course;
+        (*count)++;
+
 	}
 
-	    fclose(file);
+	fclose(file);
     return courses;
 }
 
-
-int save_courses(Course* courses, int count, const char* filename) {
-    FILE* file = fopen(filename, "w");
-    if (file == NULL) {
-        return DATA_ERROR_WRITE;
-    }
-
-
-    fprintf(file, "title,course_code,subject_area,difficulty,workload,has_exam,has_midterm,rating,description,year_offered\n");
-
-    for (int i = 0; i < count; i++) {
-        char escaped_title[200];
-        char escaped_description[1000];
-
-        escape_csv_field(escaped_title, courses[i].title, sizeof(escaped_title));
-        escape_csv_field(escaped_description, courses[i].description, sizeof(escaped_description));
-
-        fprintf(file, "%s,%s,%s,%d,%d,%d,%d,%.1f,%s,%d\n",
-                escaped_title,
-                courses[i].course_code,
-                courses[i].subject_area,
-                courses[i].difficulty,
-                courses[i].workload,
-                courses[i].has_exam,
-                courses[i].has_midterm,
-                courses[i].rating,
-                escaped_description,
-                courses[i].year_offered);
-    }
-
-    fclose(file);
-    return DATA_SUCCESS;
-}
 
 int save_courses(Course* courses, int count, const char* filename) {
     FILE* file = fopen(filename, "w");

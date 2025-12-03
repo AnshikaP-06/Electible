@@ -21,7 +21,7 @@ run: all
 # Run with test input
 test:
 	chmod +x test.sh
-	./test.sh
+	./test.sh > test_result.txt
 
 
 # Clean up compiled files

@@ -1,4 +1,4 @@
-// 
+//
 // SE 2XC3 Lab 7.2: Electible
 // main.c
 // Team 33
@@ -28,7 +28,10 @@ void display_usage(const char* program_name) {
     printf("        - One course per line\n");
     printf("        - Fields separated by commas\n");
     printf("        - Columns (in order):\n");
-    printf("            Course Code, Title, Subject, Difficulty, Workload, Rating\n");
+    printf("            Title, Course Code, Subject, Difficulty, Workload,\n");
+    printf("            Has Exam, Has Midterm, Rating, Description, Year Offered\n");
+    printf("\n");
+
 
     printf("Options:\n");
     printf("  --help       Show this help message\n\n");

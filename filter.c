@@ -1,4 +1,4 @@
-// 
+//
 // SE 2XC3 Lab 7.2: Electible - First-Year Elective Finder
 // filter.c - filter implementation file for functions in filter.h
 // Developer: Amanda Wu

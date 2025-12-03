@@ -14,8 +14,8 @@
 
 
 
-//static void trim_whitespace(char* str);
-//static void remove_quotes(char* str);
+static void trim_whitespace(char* str);
+static void remove_quotes(char* str);
 
 /**
  * Trims any leading or trailing whitespace from a string

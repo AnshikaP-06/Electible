@@ -68,7 +68,7 @@ echo "=== Filter Tests ==="
 test_feature "Filter by difficulty" "2\n2\n1\n3\n7\n7" "Diff"
 
 # Test 7: Filter by rating
-#test_feature "Filter by rating" "2\n5\n3.5\n5.0\n7\n7" "Rating"
+test_feature "Filter by rating" "2\n5\n3.5\n5.0\n7\n7" "rating"
 
 echo ""
 echo "=== Sort Tests ==="

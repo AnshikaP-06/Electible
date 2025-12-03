@@ -1,0 +1,45 @@
+        -:    0:Source:sort_workload.c
+        -:    1:#include <stddef.h>
+        -:    2:#include "../include/filter.h"
+        -:    3:#include "../include/sort.h"
+        -:    4:
+    #####:    5:static int compare_course_workload(Course courses[], int i, int j, int ascending){
+    #####:    6:	if (courses[i].workload < courses[j].workload){
+    #####:    7:		if (ascending) {
+    #####:    8:			return -1;
+        -:    9:		} else {
+    #####:   10:			return 1;
+        -:   11:		}
+        -:   12:	}
+        -:   13:
+    #####:   14:	if (courses[i].workload > courses[j].workload){
+    #####:   15:		if (ascending){
+    #####:   16:			return 1;
+        -:   17:		} else {
+    #####:   18:			return -1;
+        -:   19:		}
+        -:   20:	}
+    #####:   21:	return 0;
+        -:   22:}
+        -:   23:
+    #####:   24:void sort_by_workload(Course courses[], int count, int ascending){
+    #####:   25:	if (courses == NULL || count <= 1){
+    #####:   26:		return;
+        -:   27:	}
+        -:   28:
+    #####:   29:	for (int i = 0; i < count - 1; i++){
+    #####:   30:		int bestIndex = i;
+        -:   31:
+    #####:   32:		for (int j = i + 1; j < count; j++){
+    #####:   33:			if (compare_course_workload(courses, j, bestIndex, ascending) < 0){
+    #####:   34:				bestIndex = j;
+        -:   35:			}
+        -:   36:		}
+        -:   37:
+    #####:   38:		if (bestIndex != i){
+    #####:   39:			Course temp = courses[i];
+    #####:   40:			courses[i] = courses[bestIndex];
+    #####:   41:			courses[bestIndex] = temp;
+        -:   42:		}
+        -:   43:	}
+        -:   44:}

@@ -10,21 +10,15 @@
         -:    9:#include "../include/filter.h"
         -:   10:
         -:   11:// Helper function to make a string lowercase
-function to_lowercase called 0 returned 0% blocks executed 0%
     #####:   12:static void to_lowercase(char* str, char* result, size_t max_len) {
         -:   13:    size_t i;
     #####:   14:    for (i = 0; i < max_len - 1 && str[i] != '\0'; i++) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed
-branch  3 never executed (fallthrough)
     #####:   15:        result[i] = (char)tolower((unsigned char)str[i]);
         -:   16:    }
     #####:   17:    result[i] = '\0';
     #####:   18:}
         -:   19:
         -:   20:// Create default filter criteria (no filters)
-function create_default_filter_criteria called 0 returned 0% blocks executed 0%
     #####:   21:FilterCriteria create_default_filter_criteria(void) {
         -:   22:    FilterCriteria criteria;
     #####:   23:    criteria.subject_area[0] = '\0';
@@ -39,15 +33,8 @@ function create_default_filter_criteria called 0 returned 0% blocks executed 0%
         -:   32:}
         -:   33:
         -:   34:// Filter courses by subject area
-function filter_by_subject called 0 returned 0% blocks executed 0%
     #####:   35:Course* filter_by_subject(Course* courses, int count, const char* subject, int* result_count) {
     #####:   36:    if (courses == NULL || count <= 0 || subject == NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed
     #####:   37:        *result_count = 0;
     #####:   38:        return NULL;
         -:   39:    }
@@ -57,23 +44,15 @@ branch  5 never executed
         -:   43:    char subject_lower[50];
         -:   44:    char course_subject_lower[50];
     #####:   45:    to_lowercase((char*)subject, subject_lower, sizeof(subject_lower));
-call    0 never executed
         -:   46:
     #####:   47:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:   48:        to_lowercase(courses[i].subject_area, course_subject_lower, sizeof(course_subject_lower));
-call    0 never executed
     #####:   49:        if (strstr(course_subject_lower, subject_lower) != NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:   50:            matches++;
         -:   51:        }
         -:   52:    }
         -:   53:
     #####:   54:    if (matches == 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:   55:        *result_count = 0;
     #####:   56:        return NULL;
         -:   57:    }
@@ -81,8 +60,6 @@ branch  1 never executed
         -:   59:    // Allocate array for results
     #####:   60:    Course* results = (Course*)malloc(matches * sizeof(Course));
     #####:   61:    if (results == NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:   62:        *result_count = 0;
     #####:   63:        return NULL;
         -:   64:    }
@@ -90,13 +67,8 @@ branch  1 never executed
         -:   66:    // Copy matching courses
     #####:   67:    int result_idx = 0;
     #####:   68:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:   69:        to_lowercase(courses[i].subject_area, course_subject_lower, sizeof(course_subject_lower));
-call    0 never executed
     #####:   70:        if (strstr(course_subject_lower, subject_lower) != NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:   71:            results[result_idx++] = courses[i];
         -:   72:        }
         -:   73:    }
@@ -106,13 +78,8 @@ branch  1 never executed
         -:   77:}
         -:   78:
         -:   79:// Filter courses by difficulty range
-function filter_by_difficulty called 0 returned 0% blocks executed 0%
     #####:   80:Course* filter_by_difficulty(Course* courses, int count, int min, int max, int* result_count) {
     #####:   81:    if (courses == NULL || count <= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:   82:        *result_count = 0;
     #####:   83:        return NULL;
         -:   84:    }
@@ -120,20 +87,12 @@ branch  3 never executed
         -:   86:    // Count matches
     #####:   87:    int matches = 0;
     #####:   88:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:   89:        if (courses[i].difficulty >= min && courses[i].difficulty <= max) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:   90:            matches++;
         -:   91:        }
         -:   92:    }
         -:   93:
     #####:   94:    if (matches == 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:   95:        *result_count = 0;
     #####:   96:        return NULL;
         -:   97:    }
@@ -141,21 +100,13 @@ branch  1 never executed
         -:   99:    // Allocate and fill results
     #####:  100:    Course* results = (Course*)malloc(matches * sizeof(Course));
     #####:  101:    if (results == NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  102:        *result_count = 0;
     #####:  103:        return NULL;
         -:  104:    }
         -:  105:
     #####:  106:    int result_idx = 0;
     #####:  107:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  108:        if (courses[i].difficulty >= min && courses[i].difficulty <= max) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  109:            results[result_idx++] = courses[i];
         -:  110:        }
         -:  111:    }
@@ -165,13 +116,8 @@ branch  3 never executed
         -:  115:}
         -:  116:
         -:  117:// Filter courses by workload range
-function filter_by_workload called 0 returned 0% blocks executed 0%
     #####:  118:Course* filter_by_workload(Course* courses, int count, int min, int max, int* result_count) {
     #####:  119:    if (courses == NULL || count <= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  120:        *result_count = 0;
     #####:  121:        return NULL;
         -:  122:    }
@@ -179,20 +125,12 @@ branch  3 never executed
         -:  124:    // Count matches
     #####:  125:    int matches = 0;
     #####:  126:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  127:        if (courses[i].workload >= min && courses[i].workload <= max) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  128:            matches++;
         -:  129:        }
         -:  130:    }
         -:  131:
     #####:  132:    if (matches == 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  133:        *result_count = 0;
     #####:  134:        return NULL;
         -:  135:    }
@@ -200,21 +138,13 @@ branch  1 never executed
         -:  137:    // Allocate and fill results
     #####:  138:    Course* results = (Course*)malloc(matches * sizeof(Course));
     #####:  139:    if (results == NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  140:        *result_count = 0;
     #####:  141:        return NULL;
         -:  142:    }
         -:  143:
     #####:  144:    int result_idx = 0;
     #####:  145:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  146:        if (courses[i].workload >= min && courses[i].workload <= max) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  147:            results[result_idx++] = courses[i];
         -:  148:        }
         -:  149:    }
@@ -224,13 +154,8 @@ branch  3 never executed
         -:  153:}
         -:  154:
         -:  155:// Filter courses by exam presence
-function filter_by_exam_presence called 0 returned 0% blocks executed 0%
     #####:  156:Course* filter_by_exam_presence(Course* courses, int count, int has_exam, int* result_count) {
     #####:  157:    if (courses == NULL || count <= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  158:        *result_count = 0;
     #####:  159:        return NULL;
         -:  160:    }
@@ -238,18 +163,12 @@ branch  3 never executed
         -:  162:    // Count matches
     #####:  163:    int matches = 0;
     #####:  164:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  165:        if (courses[i].has_exam == has_exam) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  166:            matches++;
         -:  167:        }
         -:  168:    }
         -:  169:
     #####:  170:    if (matches == 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  171:        *result_count = 0;
     #####:  172:        return NULL;
         -:  173:    }
@@ -257,19 +176,13 @@ branch  1 never executed
         -:  175:    // Allocate and fill results
     #####:  176:    Course* results = (Course*)malloc(matches * sizeof(Course));
     #####:  177:    if (results == NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  178:        *result_count = 0;
     #####:  179:        return NULL;
         -:  180:    }
         -:  181:
     #####:  182:    int result_idx = 0;
     #####:  183:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  184:        if (courses[i].has_exam == has_exam) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  185:            results[result_idx++] = courses[i];
         -:  186:        }
         -:  187:    }
@@ -279,13 +192,8 @@ branch  1 never executed
         -:  191:}
         -:  192:
         -:  193:// Filter courses by midterm presence
-function filter_by_midterm_presence called 0 returned 0% blocks executed 0%
     #####:  194:Course* filter_by_midterm_presence(Course* courses, int count, int has_midterm, int* result_count) {
     #####:  195:    if (courses == NULL || count <= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  196:        *result_count = 0;
     #####:  197:        return NULL;
         -:  198:    }
@@ -293,18 +201,12 @@ branch  3 never executed
         -:  200:    // Count matches
     #####:  201:    int matches = 0;
     #####:  202:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  203:        if (courses[i].has_midterm == has_midterm) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  204:            matches++;
         -:  205:        }
         -:  206:    }
         -:  207:
     #####:  208:    if (matches == 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  209:        *result_count = 0;
     #####:  210:        return NULL;
         -:  211:    }
@@ -312,19 +214,13 @@ branch  1 never executed
         -:  213:    // Allocate and fill results
     #####:  214:    Course* results = (Course*)malloc(matches * sizeof(Course));
     #####:  215:    if (results == NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  216:        *result_count = 0;
     #####:  217:        return NULL;
         -:  218:    }
         -:  219:
     #####:  220:    int result_idx = 0;
     #####:  221:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  222:        if (courses[i].has_midterm == has_midterm) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  223:            results[result_idx++] = courses[i];
         -:  224:        }
         -:  225:    }
@@ -334,13 +230,8 @@ branch  1 never executed
         -:  229:}
         -:  230:
         -:  231:// Filter courses by minimum rating
-function filter_by_rating called 0 returned 0% blocks executed 0%
     #####:  232:Course* filter_by_rating(Course* courses, int count, float min_rating, int* result_count) {
     #####:  233:    if (courses == NULL || count <= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  234:        *result_count = 0;
     #####:  235:        return NULL;
         -:  236:    }
@@ -348,18 +239,12 @@ branch  3 never executed
         -:  238:    // Count matches
     #####:  239:    int matches = 0;
     #####:  240:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  241:        if (courses[i].rating >= min_rating) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  242:            matches++;
         -:  243:        }
         -:  244:    }
         -:  245:
     #####:  246:    if (matches == 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  247:        *result_count = 0;
     #####:  248:        return NULL;
         -:  249:    }
@@ -367,19 +252,13 @@ branch  1 never executed
         -:  251:    // Allocate and fill results
     #####:  252:    Course* results = (Course*)malloc(matches * sizeof(Course));
     #####:  253:    if (results == NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  254:        *result_count = 0;
     #####:  255:        return NULL;
         -:  256:    }
         -:  257:
     #####:  258:    int result_idx = 0;
     #####:  259:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  260:        if (courses[i].rating >= min_rating) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  261:            results[result_idx++] = courses[i];
         -:  262:        }
         -:  263:    }
@@ -389,13 +268,8 @@ branch  1 never executed
         -:  267:}
         -:  268:
         -:  269:// Apply multiple filters at once
-function apply_multiple_filters called 0 returned 0% blocks executed 0%
     #####:  270:Course* apply_multiple_filters(Course* courses, int count, FilterCriteria criteria, int* result_count) {
     #####:  271:    if (courses == NULL || count <= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  272:        *result_count = 0;
     #####:  273:        return NULL;
         -:  274:    }
@@ -407,127 +281,71 @@ branch  3 never executed
     #####:  280:    int has_subject_filter = (strlen(criteria.subject_area) > 0);
         -:  281:
     #####:  282:    if (has_subject_filter) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  283:        to_lowercase(criteria.subject_area, subject_lower, sizeof(subject_lower));
-call    0 never executed
         -:  284:    }
         -:  285:
     #####:  286:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  287:        int match = 1;
         -:  288:
         -:  289:        // Check subject filter
     #####:  290:        if (has_subject_filter) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  291:            to_lowercase(courses[i].subject_area, course_subject_lower, sizeof(course_subject_lower));
-call    0 never executed
     #####:  292:            if (strstr(course_subject_lower, subject_lower) == NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  293:                match = 0;
         -:  294:            }
         -:  295:        }
         -:  296:
         -:  297:        // Check difficulty filter
     #####:  298:        if (match && criteria.min_difficulty >= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  299:            if (courses[i].difficulty < criteria.min_difficulty) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  300:                match = 0;
         -:  301:            }
         -:  302:        }
     #####:  303:        if (match && criteria.max_difficulty >= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  304:            if (courses[i].difficulty > criteria.max_difficulty) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  305:                match = 0;
         -:  306:            }
         -:  307:        }
         -:  308:
         -:  309:        // Check workload filter
     #####:  310:        if (match && criteria.min_workload >= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  311:            if (courses[i].workload < criteria.min_workload) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  312:                match = 0;
         -:  313:            }
         -:  314:        }
     #####:  315:        if (match && criteria.max_workload >= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  316:            if (courses[i].workload > criteria.max_workload) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  317:                match = 0;
         -:  318:            }
         -:  319:        }
         -:  320:
         -:  321:        // Check exam filter
     #####:  322:        if (match && criteria.has_exam >= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  323:            if (courses[i].has_exam != criteria.has_exam) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  324:                match = 0;
         -:  325:            }
         -:  326:        }
         -:  327:
         -:  328:        // Check midterm filter
     #####:  329:        if (match && criteria.has_midterm >= 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  330:            if (courses[i].has_midterm != criteria.has_midterm) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  331:                match = 0;
         -:  332:            }
         -:  333:        }
         -:  334:
         -:  335:        // Check rating filter
     #####:  336:        if (match && criteria.min_rating >= 0.0f) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:  337:            if (courses[i].rating < criteria.min_rating) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  338:                match = 0;
         -:  339:            }
         -:  340:        }
         -:  341:
     #####:  342:        if (match) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  343:            matches++;
         -:  344:        }
         -:  345:    }
         -:  346:
     #####:  347:    if (matches == 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  348:        *result_count = 0;
     #####:  349:        return NULL;
         -:  350:    }
@@ -535,98 +353,45 @@ branch  1 never executed
         -:  352:    // Allocate and fill results
     #####:  353:    Course* results = (Course*)malloc(matches * sizeof(Course));
     #####:  354:    if (results == NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  355:        *result_count = 0;
     #####:  356:        return NULL;
         -:  357:    }
         -:  358:
     #####:  359:    int result_idx = 0;
     #####:  360:    for (int i = 0; i < count; i++) {
-branch  0 never executed
-branch  1 never executed (fallthrough)
     #####:  361:        int match = 1;
         -:  362:
         -:  363:        // Apply all the same filters again
     #####:  364:        if (has_subject_filter) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  365:            to_lowercase(courses[i].subject_area, course_subject_lower, sizeof(course_subject_lower));
-call    0 never executed
     #####:  366:            if (strstr(course_subject_lower, subject_lower) == NULL) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  367:                match = 0;
         -:  368:            }
         -:  369:        }
         -:  370:
     #####:  371:        if (match && criteria.min_difficulty >= 0 && courses[i].difficulty < criteria.min_difficulty) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed
     #####:  372:            match = 0;
         -:  373:        }
     #####:  374:        if (match && criteria.max_difficulty >= 0 && courses[i].difficulty > criteria.max_difficulty) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed
     #####:  375:            match = 0;
         -:  376:        }
     #####:  377:        if (match && criteria.min_workload >= 0 && courses[i].workload < criteria.min_workload) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed
     #####:  378:            match = 0;
         -:  379:        }
     #####:  380:        if (match && criteria.max_workload >= 0 && courses[i].workload > criteria.max_workload) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed
     #####:  381:            match = 0;
         -:  382:        }
     #####:  383:        if (match && criteria.has_exam >= 0 && courses[i].has_exam != criteria.has_exam) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed
     #####:  384:            match = 0;
         -:  385:        }
     #####:  386:        if (match && criteria.has_midterm >= 0 && courses[i].has_midterm != criteria.has_midterm) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed
     #####:  387:            match = 0;
         -:  388:        }
     #####:  389:        if (match && criteria.min_rating >= 0.0f && courses[i].rating < criteria.min_rating) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
-branch  4 never executed (fallthrough)
-branch  5 never executed
     #####:  390:            match = 0;
         -:  391:        }
         -:  392:
     #####:  393:        if (match) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
     #####:  394:            results[result_idx++] = courses[i];
         -:  395:        }
         -:  396:    }

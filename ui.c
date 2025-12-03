@@ -121,17 +121,17 @@ void display_menu(void){
     printf("\n");
 }
 
-//display course in tablen r0w format
+//display course in tablen row format
 static void display_course_row(Course course, int index) {
-    printf("%-4d %-10s %-40s %4d/5  %4d/5  %s     %s         %.1f/5\n",
-           index +1,
-           course.course_code,
-           course.title,
-           course.difficulty,
-           course.workload,
-           course.has_exam ? "Yes" : "No ",
-           course.has_midterm ? "Yes" : "No ",
-           course.rating);
+    printf("%-4d %-12s %-45s %3d/5   %3d/5   %-3s    %-3s      %.1f/5\n",
+       index + 1,
+       course.course_code,
+       course.title,
+       course.difficulty,
+       course.workload,
+       course.has_exam ? "Yes" : "No",
+       course.has_midterm ? "Yes" : "No",
+       course.rating);
 }
 
 //display list of courses in table
@@ -142,8 +142,8 @@ void display_courses(Course* courses,int count){
     }
     printf("\n%s%sFound %d courses:%s\n\n", COLOR_BOLD, COLOR_BLUE, count, COLOR_RESET);
     //Table  header
-    printf("%-4s %-10s %-40s %-6s %-6s %-6s %-9s %-6s\n",
-           "#", "Code","Title","Diff","Work","Exam","Midterm", "Rating");
+    printf("%-4s %-12s %-45s %-6s %-6s %-6s %-8s %-6s\n",
+        "#", "Code", "Title", "Diff", "Work", "Exam", "Mid", "Rating");
     print_separator();
 
 //display each course

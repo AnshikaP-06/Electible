@@ -1,122 +1,92 @@
-<<<<<<< HEAD
 title,course_code,subject_area,difficulty,workload,has_exam,has_midterm,rating,description,year_offered
-Discrete Mathematics with Applications I,COMPSCI 1,Computer Science,4,5,1,1,3.8,"Introduction to logic, sets, functions, and proof techniques. Essential for theoretical computer science.",2025
-Principles of Programming,COMPSCI 1,Computer Science,4,4,1,1,4.2,"Advanced programming concepts including recursion, data structures, and algorithm analysis using functional programming.",2025
-Mathematical Probability,MATH 1MP3,Mathematics,4,5,1,1,3.5,"Introduction to probability theory including random variables, distributions, and expectation.",2025
-Structure and Bonding,CHEM 1E03,Chemistry,4,5,1,1,3.6,"Chemical bonding, molecular structure, thermodynamics, and kinetics.",2025
-Introductory Physics I,PHYSICS 1,Physics,4,4,1,1,3.8,"Classical mechanics including kinematics, dynamics, energy, and momentum.",2025
-Calculus for Science II,MATH 1LT3,Mathematics,3,3,1,1,4.1,"Continuation of calculus covering techniques of integration, sequences, and series.",2025
-Introduction to Finance,COMMERCE,Business,3,3,1,1,4.0,"Fundamentals of corporate finance, time value of money, and investment analysis.",2025
-Cellular and Molecular Biology,BIOLOGY 1,Life Sciences,3,4,1,1,4.1,"Introduction to cell structure, metabolism, genetics, and molecular biology.",2025
-Linear Algebra,MATH 1LS3,Mathematics,3,4,1,1,4.0,"Covers vector spaces, matrices, linear transformations, and eigenvalues. Essential for engineering applications.",2025
-Introduction to Programming,COMPSCI 1,Computer Science,3,4,1,1,4.5,"Learn fundamental programming concepts using Python. Covers variables, loops, functions, and basic data structures.",2025
-Macroeconomic Policy,ECON 1B03,Economics,3,3,1,1,4.0,"Introduction to macroeconomics including GDP, inflation, unemployment, and fiscal policy.",2025
-Microeconomic Theory,ECON 1BB3,Economics,3,4,1,1,3.9,"Study of individual decision-making, market structures, and resource allocation.",2025
-Digital Systems,ENGINEER,Engineering,3,4,1,1,4.1,"Introduction to digital logic, combinational and sequential circuits, and microprocessors.",2025
-Materials Science and Engineering,MATLS 1M0,Engineering,3,3,1,1,3.7,"Properties and applications of materials including metals, polymers, ceramics, and composites.",2025
-Introduction to Business,COMMERCE,Business,2,2,1,1,4.4,"Overview of business fundamentals including management, marketing, finance, and operations.",2025
-Classical Mythology,CLASSICS,Humanities,2,2,0,1,4.7,Explores Greek and Roman myths and their influence on Western culture and literature.,2025
-Introduction to Philosophy,PHILOS 1A,Humanities,2,3,0,1,4.5,"Survey of major philosophical questions including ethics, knowledge, reality, and free will.",2025
-Ethics and the Good Life,PHILOS 2Y,Humanities,2,3,1,0,4.6,Exploration of ethical theories and their application to contemporary moral issues.,2025
-Introduction to Psychology,PSYCH 1X0,Social Sciences,2,3,1,1,4.4,"Overview of psychological science including cognition, development, social behavior, and mental health.",2025
-Engineering and Entrepreneurship,ENGINEER,Engineering,2,4,0,1,4.2,"Project-based course teaching design thinking, prototyping, and entrepreneurial mindset.",2025
-Engineering Design and Graphics,ENGINEER,Engineering,2,3,1,0,3.9,Computer-aided design (CAD) fundamentals and technical drawing for engineering applications.,2025
-Introduction to Marketing,COMMERCE,Business,2,3,1,0,4.3,"Explores marketing principles, consumer behavior, branding, and digital marketing strategies.",2025
-Biodiversity Evolution Ecology,BIOLOGY 1,Life Sciences,2,3,1,1,4.4,"Explores evolution, ecology, and diversity of life from microorganisms to ecosystems.",2025
-Engineering Profession and Practice,ENGINEER,Engineering,1,2,0,0,4.6,"Introduction to engineering design process, ethics, teamwork, and professional practice.",2025
-Introduction to Sociology,SOCIOL 1A,Social Sciences,1,2,1,1,4.3,"Examines social structures, culture, inequality, and social change in contemporary society.",2025
-ggg,ggg,gggg,5,5,1,1,5.0,ggg,2026
-=======
-title,course_code,subject_area,difficulty,workload,has_exam,has_midterm,rating,description
-"Topics in Black, African and African Diaspora Studies",ABLD 3BA3,Black Studies,2,2,1,1,4.0,"Introduction to Topics in Black, African and African Diaspora Studies"
-Topics in the Black Caribbean and its Diasporas,ABLD 3CD3,Black Studies,2,2,1,1,4.0,Introduction to Topics in the Black Caribbean and its Diasporas
-"Introduction to Anthropology: Sex, Food and Death",ANTHROP 1AA3,Anthropology,2,2,1,1,4.0,"Introduction to Anthropology: Sex, Food and Death"
-"Introduction to Anthropology: Race, Religion, and Social Justice",ANTHROP 1AB3,Anthropology,2,2,1,1,4.0,"Introduction to Anthropology: Race, Religion, and Social Justice"
-Introduction to Cayuga Language and Culture,CAYUGA 1Z03,Indigenous Languages,2,3,1,1,4.0,Introduction to Cayuga Language and Culture
-Introduction to Communication,CMST 1A03,Communication Studies,2,2,1,1,4.0,Introduction to Communication
-Introductory Macroeconomics,ECON 1BB3,Economics,2,2,1,1,4.0,Introductory Macroeconomics
-Studying Culture: A Critical Introduction,ENGLISH 1CS3,English,2,2,0,1,4.0,Introduction to Studying Culture: A Critical Introduction
-The Written World,ENGLISH 1F03,English,2,2,0,1,4.0,Introduction to The Written World
-Making and Unmaking Literary Traditions,ENGLISH 1G03,English,2,2,0,1,4.0,Introduction to Making and Unmaking Literary Traditions
-Words in Place,ENGLISH 1H03,English,2,2,0,1,4.0,Introduction to Words in Place
-"Society, Culture and Environment",ENVSOCTY 1HA3,Environmental Science,2,2,1,1,4.0,"Introduction to Society, Culture and Environment"
-"Population, Cities and Development",ENVSOCTY 1HB3,Environmental Science,2,2,1,1,4.0,"Introduction to Population, Cities and Development"
-Introductory Farsi I,FARSI 1Z03,Languages,2,3,1,1,4.0,Introductory Farsi I
-Introductory Farsi II,FARSI 1ZZ3,Languages,2,3,1,1,4.0,Introductory Farsi II
-"Gender, Race, Culture, Power",GENDRST 1A03,Gender Studies,2,2,1,1,4.0,"Introduction to Gender, Race, Culture, Power"
-"Gender, Feminism and Social Justice",GENDRST 1AA3,Gender Studies,2,2,1,1,4.0,"Introduction to Gender, Feminism and Social Justice"
-Intermediate German I,GERMAN 1B03,Languages,2,3,1,1,4.0,Introduction to Intermediate German I
-Intermediate German II,GERMAN 1BB3,Languages,2,3,1,1,4.0,Introduction to Intermediate German II
-Global Citizenship,GLOBALZN 1A03,Global Studies,2,2,1,1,4.0,Introduction to Global Citizenship
-BeginnerÆs Intensive Ancient Greek I,GREEK 1Z03,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Intensive Ancient Greek I
-BeginnerÆs Intensive Ancient Greek II,GREEK 1ZZ3,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Intensive Ancient Greek II
-"Ten Empires that Shaped our World, 500 BCE to Present",HISTORY 1CC3,History,2,2,0,1,4.0,"Introduction to Ten Empires that Shaped our World, 500 BCE to Present"
-"The Making of the Modern World, 1750-1945",HISTORY 1DD3,History,2,2,0,1,4.0,"Introduction to The Making of the Modern World, 1750-1945"
-The Historical Roots of Contemporary Issues,HISTORY 1EE3,History,2,2,0,1,4.0,Introduction to The Historical Roots of Contemporary Issues
-Exploring History in a Small Group Setting,HISTORY 1FF3,History,2,2,0,1,4.0,Introduction to Exploring History in a Small Group Setting
-History of Greece and Rome,HISTORY 1M03,History,2,2,0,1,4.0,Introduction to History of Greece and Rome
-A History of Magic,HISTORY 1P03,History,2,2,0,1,4.0,Introduction to A History of Magic
-History of Medicine,HISTORY 1Q03,History,2,2,0,1,4.0,Introduction to History of Medicine
-Introduction to Health and Society,HLTHAGE 1AA3,Health Studies,2,2,1,1,4.0,Introduction to Health and Society
-Introduction to Aging and Society,HLTHAGE 1BB3,Health Studies,2,2,1,1,4.0,Introduction to Aging and Society
-Introduction to Mental Health and Illness,HLTHAGE 1CC3,Health Studies,2,2,1,1,4.0,Introduction to Mental Health and Illness
-Introduction to Histories of the Arts,IARTS 1HA3,Arts,2,2,1,1,4.0,Introduction to Histories of the Arts
-"Perspectives A: Arts in Society: Social Constructions of Class, Race and Gender",IARTS 1PA3,Arts,2,2,1,1,4.0,"Introduction to Perspectives A: Arts in Society: Social Constructions of Class, Race and Gender"
-Perspectives B: Arts in Society: Technology and the Environment,IARTS 1PB3,Arts,2,2,1,1,4.0,Introduction to Perspectives B: Arts in Society: Technology and the Environment
-"Theatre, Performance, and Society",IARTS 1T03,Arts,2,2,1,1,4.0,"Introduction to Theatre, Performance, and Society"
-Introduction to Indigenous Studies,INDIGST 1A03,Indigenous Studies,2,2,1,1,4.0,Introduction to Indigenous Studies
-Introduction to Contemporary Indigenous Studies,INDIGST 1AA3,Indigenous Studies,2,2,1,1,4.0,Introduction to Contemporary Indigenous Studies
-Reconciling What? Indigenous Relations in Canada,INDIGST 1B03,Indigenous Studies,2,2,1,1,4.0,Introduction to Reconciling What? Indigenous Relations in Canada
-Social Innovations,INNOVATE 2SI3,Innovation,2,2,1,1,4.0,Introduction to Social Innovations
-Personal Leadership Through University Transition,INSPIRE 1PL3,Interdisciplinary,2,2,1,1,4.0,Introduction to Personal Leadership Through University Transition
-Experiential Learning Opportunities,INSPIRE 3EL3,Interdisciplinary,2,2,1,1,4.0,Introduction to Experiential Learning Opportunities
-A World of Big Questions and Multiple Perspectives,INSPIRE 3MP3,Interdisciplinary,2,2,1,1,4.0,Introduction to A World of Big Questions and Multiple Perspectives
-Intermediate Italian I,ITALIAN 1A03,Languages,2,3,1,1,4.0,Introduction to Intermediate Italian I
-Intermediate Italian II,ITALIAN 1AA3,Languages,2,3,1,1,4.0,Introduction to Intermediate Italian II
-Introductory Korean I,KOREAN 1Z03,Languages,2,3,1,1,4.0,Introductory Korean I
-Introductory Korean II,KOREAN 1ZZ3,Languages,2,3,1,1,4.0,Introductory Korean II
-Introduction to Latin American and Latinx Studies,LATAM 2A03,Latin American Studies,2,2,1,1,4.0,Introduction to Latin American and Latinx Studies
-Critical Contemporary Issues in Latin American and Latinx Studies,LATAM 3A03,Latin American Studies,2,2,1,1,4.0,Introduction to Critical Contemporary Issues in Latin American and Latinx Studies
-BeginnerÆs Intensive Latin I,LATIN 1Z03,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Intensive Latin I
-BeginnerÆs Intensive Latin II,LATIN 1ZZ3,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Intensive Latin II
-"Introduction to Linguistics: Speaking, Signing and Hearing",LINGUIST 1A03,Linguistics,2,2,1,1,4.0,"Introduction to Linguistics: Speaking, Signing and Hearing"
-"Introduction to Linguistics: Words, Sentences and Meaning",LINGUIST 1AA3,Linguistics,2,2,1,1,4.0,"Introduction to Linguistics: Words, Sentences and Meaning"
-Structure of Modern English I,LINGUIST 1Z03,Linguistics,2,2,1,1,4.0,Introduction to Structure of Modern English I
-Structure of Modern English II,LINGUIST 1ZZ3,Linguistics,2,2,1,1,4.0,Introduction to Structure of Modern English II
-Introduction to Mohawk Language and Culture,MOHAWK 1Z03,Indigenous Languages,2,3,1,1,4.0,Introduction to Mohawk Language and Culture
-Introduction to the History of Western Music I,MUSIC 1A03,Music,2,2,1,1,4.0,Introduction to the History of Western Music I
-Introduction to the History of Western Music II,MUSIC 1AA3,Music,2,2,1,1,4.0,Introduction to the History of Western Music II
-Introduction to Ojibwe Language and Culture,OJIBWE 1Z03,Indigenous Languages,2,3,1,1,4.0,Introduction to Ojibwe Language and Culture
-"Peace, Justice, Human Rights",PEACJUST 1A03,Peace Studies,2,2,1,1,4.0,"Introduction to Peace, Justice, Human Rights"
-Voices at Mac: Understanding our World,PEACJUST 1VM3,Peace Studies,2,2,1,1,4.0,Introduction to Voices at Mac: Understanding our World
-Philosophical Texts,PHILOS 1A03,Philosophy,2,2,0,1,4.0,Introduction to Philosophical Texts
-"Philosophy, Law and Society",PHILOS 1B03,Philosophy,2,2,0,1,4.0,"Introduction to Philosophy, Law and Society"
-Philosophical Questions,PHILOS 1E03,Philosophy,2,2,0,1,4.0,Introduction to Philosophical Questions
-Meaning in Life,PHILOS 1F03,Philosophy,2,2,0,1,4.0,Introduction to Meaning in Life
-BeginnerÆs Polish I,POLISH 1Z03,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Polish I
-BeginnerÆs Polish II,POLISH 1ZZ3,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Polish II
-"Government, Politics, and Power",POLSCI 1AA3,Political Science,2,2,1,1,4.0,"Introduction to Government, Politics, and Power"
-Politics and Power in a Globalizing World,POLSCI 1AB3,Political Science,2,2,1,1,4.0,Introduction to Politics and Power in a Globalizing World
-Survey of Psychology,PSYCH 1F03,Psychology,2,2,1,1,4.0,Introduction to Survey of Psychology
-"Introduction to Psychology, Neuroscience & Behaviour",PSYCH 1X03,Psychology,2,2,1,1,4.0,"Introduction to Psychology, Neuroscience & Behaviour"
-"Foundations of Psychology, Neuroscience & Behaviour",PSYCH 1XX3,Psychology,2,2,1,1,4.0,"Introduction to Foundations of Psychology, Neuroscience & Behaviour"
-Intensive BeginnerÆs Russian I,RUSSIAN 1Z03,Languages,2,3,1,1,4.0,Introduction to Intensive BeginnerÆs Russian I
-Intensive BeginnerÆs Russian II,RUSSIAN 1ZZ3,Languages,2,3,1,1,4.0,Introduction to Intensive BeginnerÆs Russian II
-What on Earth is Religion?,SCAR 1B03,Religion,2,2,1,1,4.0,Introduction to What on Earth is Religion?
-"The Big Questions: Introduction to Society, Culture & Religion",SCAR 1SC3,Religion,2,2,1,1,4.0,"Introduction to The Big Questions: Introduction to Society, Culture & Religion"
-"Canadian Society: Social Problems, Social Policy, and the Law",SOCIOL 1C03,Sociology,2,2,1,1,4.0,"Introduction to Canadian Society: Social Problems, Social Policy, and the Law"
-An Introduction to Sociology,SOCIOL 1Z03,Sociology,2,2,1,1,4.0,Introduction to An Introduction to Sociology
-An Introduction to Social Psychology,SOCPSY 1Z03,Social Psychology,2,2,1,1,4.0,Introduction to An Introduction to Social Psychology
-So You Think You Can Help? Introduction to Social Work I,SOCWORK 1AA3,Social Work,2,2,1,1,4.0,Introduction to So You Think You Can Help? Introduction to Social Work I
-Re-Imagining Help: Introduction to Social Work II,SOCWORK 1BB3,Social Work,2,2,1,1,4.0,Introduction to Re-Imagining Help: Introduction to Social Work II
-Intermediate Spanish I,SPANISH 1A03,Languages,2,3,1,1,4.0,Introduction to Intermediate Spanish I
-Intermediate Spanish II,SPANISH 1AA3,Languages,2,3,1,1,4.0,Introduction to Intermediate Spanish II
-Introduction to Sustainability,SUSTAIN 1S03,Sustainability,2,2,1,1,4.0,Introduction to Sustainability
-Intersectionality and Sustainable Development,SUSTAIN 2IS3,Sustainability,2,2,1,1,4.0,Introduction to Intersectionality and Sustainable Development
-Evaluating Problems & Sustainable Solutions,SUSTAIN 2S03,Sustainability,2,2,1,1,4.0,Introduction to Evaluating Problems & Sustainable Solutions
-Exploring the United Nations Sustainable Development Goals,SUSTAIN 2SD3,Sustainability,2,2,1,1,4.0,Introduction to Exploring the United Nations Sustainable Development Goals
-Advocating for Sustainability,SUSTAIN 2SS3,Sustainability,2,2,1,1,4.0,Introduction to Advocating for Sustainability
-An Introduction to Work and Labour in Canada,WORKLABR 1A03,Work and Labour Studies,2,2,1,1,4.0,Introduction to An Introduction to Work and Labour in Canada
-Technology and the Future of Work,WORKLABR 1D03,Work and Labour Studies,2,2,1,1,4.0,Introduction to Technology and the Future of Work
-Navigating the World of Work,WORKLABR 1E03,Work and Labour Studies,2,2,1,1,4.0,Introduction to Navigating the World of Work
->>>>>>> 2f73c51c55a1fc3a1644eb467a3eb0629aa886ce
+"Topics in Black, African and African Diaspora Studies",ABLD 3BA3,Black Studies,2,2,1,1,4.0,"Introduction to Topics in Black, African and African Diaspora Studies",2025
+Topics in the Black Caribbean and its Diasporas,ABLD 3CD3,Black Studies,2,2,1,1,4.0,Introduction to Topics in the Black Caribbean and its Diasporas,2025
+"Introduction to Anthropology: Sex, Food and Death",ANTHROP 1AA3,Anthropology,2,2,1,1,4.0,"Introduction to Anthropology: Sex, Food and Death",2025
+"Introduction to Anthropology: Race, Religion, and Social Justice",ANTHROP 1AB3,Anthropology,2,2,1,1,4.0,"Introduction to Anthropology: Race, Religion, and Social Justice",2025
+Introduction to Cayuga Language and Culture,CAYUGA 1Z03,Indigenous Languages,2,3,1,1,4.0,Introduction to Cayuga Language and Culture,2025
+Introduction to Communication,CMST 1A03,Communication Studies,2,2,1,1,4.0,Introduction to Communication,2025
+Introductory Macroeconomics,ECON 1BB3,Economics,2,2,1,1,4.0,Introductory Macroeconomics,2025
+Studying Culture: A Critical Introduction,ENGLISH 1CS3,English,2,2,0,1,4.0,Introduction to Studying Culture: A Critical Introduction,2025
+The Written World,ENGLISH 1F03,English,2,2,0,1,4.0,Introduction to The Written World,2025
+Making and Unmaking Literary Traditions,ENGLISH 1G03,English,2,2,0,1,4.0,Introduction to Making and Unmaking Literary Traditions,2025
+Words in Place,ENGLISH 1H03,English,2,2,0,1,4.0,Introduction to Words in Place,2025
+"Society, Culture and Environment",ENVSOCTY 1HA3,Environmental Science,2,2,1,1,4.0,"Introduction to Society, Culture and Environment",2025
+"Population, Cities and Development",ENVSOCTY 1HB3,Environmental Science,2,2,1,1,4.0,"Introduction to Population, Cities and Development",2025
+Introductory Farsi I,FARSI 1Z03,Languages,2,3,1,1,4.0,Introductory Farsi I,2025
+Introductory Farsi II,FARSI 1ZZ3,Languages,2,3,1,1,4.0,Introductory Farsi II,2025
+"Gender, Race, Culture, Power",GENDRST 1A03,Gender Studies,2,2,1,1,4.0,"Introduction to Gender, Race, Culture, Power",2025
+"Gender, Feminism and Social Justice",GENDRST 1AA3,Gender Studies,2,2,1,1,4.0,"Introduction to Gender, Feminism and Social Justice",2025
+Intermediate German I,GERMAN 1B03,Languages,2,3,1,1,4.0,Introduction to Intermediate German I,2025
+Intermediate German II,GERMAN 1BB3,Languages,2,3,1,1,4.0,Introduction to Intermediate German II,2025
+Global Citizenship,GLOBALZN 1A03,Global Studies,2,2,1,1,4.0,Introduction to Global Citizenship,2025
+BeginnerÆs Intensive Ancient Greek I,GREEK 1Z03,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Intensive Ancient Greek I,2025
+BeginnerÆs Intensive Ancient Greek II,GREEK 1ZZ3,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Intensive Ancient Greek II,2025
+"Ten Empires that Shaped our World, 500 BCE to Present",HISTORY 1CC3,History,2,2,0,1,4.0,"Introduction to Ten Empires that Shaped our World, 500 BCE to Present",2025
+"The Making of the Modern World, 1750-1945",HISTORY 1DD3,History,2,2,0,1,4.0,"Introduction to The Making of the Modern World, 1750-1945",2025
+The Historical Roots of Contemporary Issues,HISTORY 1EE3,History,2,2,0,1,4.0,Introduction to The Historical Roots of Contemporary Issues,2025
+Exploring History in a Small Group Setting,HISTORY 1FF3,History,2,2,0,1,4.0,Introduction to Exploring History in a Small Group Setting,2025
+History of Greece and Rome,HISTORY 1M03,History,2,2,0,1,4.0,Introduction to History of Greece and Rome,2025
+A History of Magic,HISTORY 1P03,History,2,2,0,1,4.0,Introduction to A History of Magic,2025
+History of Medicine,HISTORY 1Q03,History,2,2,0,1,4.0,Introduction to History of Medicine,2025
+Introduction to Health and Society,HLTHAGE 1AA3,Health Studies,2,2,1,1,4.0,Introduction to Health and Society,2025
+Introduction to Aging and Society,HLTHAGE 1BB3,Health Studies,2,2,1,1,4.0,Introduction to Aging and Society,2025
+Introduction to Mental Health and Illness,HLTHAGE 1CC3,Health Studies,2,2,1,1,4.0,Introduction to Mental Health and Illness,2025
+Introduction to Histories of the Arts,IARTS 1HA3,Arts,2,2,1,1,4.0,Introduction to Histories of the Arts,2025
+"Perspectives A: Arts in Society: Social Constructions of Class, Race and Gender",IARTS 1PA3,Arts,2,2,1,1,4.0,"Introduction to Perspectives A: Arts in Society: Social Constructions of Class, Race and Gender",2025
+Perspectives B: Arts in Society: Technology and the Environment,IARTS 1PB3,Arts,2,2,1,1,4.0,Introduction to Perspectives B: Arts in Society: Technology and the Environment,2025
+"Theatre, Performance, and Society",IARTS 1T03,Arts,2,2,1,1,4.0,"Introduction to Theatre, Performance, and Society",2025
+Introduction to Indigenous Studies,INDIGST 1A03,Indigenous Studies,2,2,1,1,4.0,Introduction to Indigenous Studies,2025
+Introduction to Contemporary Indigenous Studies,INDIGST 1AA3,Indigenous Studies,2,2,1,1,4.0,Introduction to Contemporary Indigenous Studies,2025
+Reconciling What? Indigenous Relations in Canada,INDIGST 1B03,Indigenous Studies,2,2,1,1,4.0,Introduction to Reconciling What? Indigenous Relations in Canada,2025
+Social Innovations,INNOVATE 2SI3,Innovation,2,2,1,1,4.0,Introduction to Social Innovations,2025
+Personal Leadership Through University Transition,INSPIRE 1PL3,Interdisciplinary,2,2,1,1,4.0,Introduction to Personal Leadership Through University Transition,2025
+Experiential Learning Opportunities,INSPIRE 3EL3,Interdisciplinary,2,2,1,1,4.0,Introduction to Experiential Learning Opportunities,2025
+A World of Big Questions and Multiple Perspectives,INSPIRE 3MP3,Interdisciplinary,2,2,1,1,4.0,Introduction to A World of Big Questions and Multiple Perspectives,2025
+Intermediate Italian I,ITALIAN 1A03,Languages,2,3,1,1,4.0,Introduction to Intermediate Italian I,2025
+Intermediate Italian II,ITALIAN 1AA3,Languages,2,3,1,1,4.0,Introduction to Intermediate Italian II,2025
+Introductory Korean I,KOREAN 1Z03,Languages,2,3,1,1,4.0,Introductory Korean I,2025
+Introductory Korean II,KOREAN 1ZZ3,Languages,2,3,1,1,4.0,Introductory Korean II,2025
+Introduction to Latin American and Latinx Studies,LATAM 2A03,Latin American Studies,2,2,1,1,4.0,Introduction to Latin American and Latinx Studies,2025
+Critical Contemporary Issues in Latin American and Latinx Studies,LATAM 3A03,Latin American Studies,2,2,1,1,4.0,Introduction to Critical Contemporary Issues in Latin American and Latinx Studies,2025
+BeginnerÆs Intensive Latin I,LATIN 1Z03,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Intensive Latin I,2025
+BeginnerÆs Intensive Latin II,LATIN 1ZZ3,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Intensive Latin II,2025
+"Introduction to Linguistics: Speaking, Signing and Hearing",LINGUIST 1A03,Linguistics,2,2,1,1,4.0,"Introduction to Linguistics: Speaking, Signing and Hearing",2025
+"Introduction to Linguistics: Words, Sentences and Meaning",LINGUIST 1AA3,Linguistics,2,2,1,1,4.0,"Introduction to Linguistics: Words, Sentences and Meaning",2025
+Structure of Modern English I,LINGUIST 1Z03,Linguistics,2,2,1,1,4.0,Introduction to Structure of Modern English I,2025
+Structure of Modern English II,LINGUIST 1ZZ3,Linguistics,2,2,1,1,4.0,Introduction to Structure of Modern English II,2025
+Introduction to Mohawk Language and Culture,MOHAWK 1Z03,Indigenous Languages,2,3,1,1,4.0,Introduction to Mohawk Language and Culture,2025
+Introduction to the History of Western Music I,MUSIC 1A03,Music,2,2,1,1,4.0,Introduction to the History of Western Music I,2025
+Introduction to the History of Western Music II,MUSIC 1AA3,Music,2,2,1,1,4.0,Introduction to the History of Western Music II,2025
+Introduction to Ojibwe Language and Culture,OJIBWE 1Z03,Indigenous Languages,2,3,1,1,4.0,Introduction to Ojibwe Language and Culture,2025
+"Peace, Justice, Human Rights",PEACJUST 1A03,Peace Studies,2,2,1,1,4.0,"Introduction to Peace, Justice, Human Rights",2025
+Voices at Mac: Understanding our World,PEACJUST 1VM3,Peace Studies,2,2,1,1,4.0,Introduction to Voices at Mac: Understanding our World,2025
+Philosophical Texts,PHILOS 1A03,Philosophy,2,2,0,1,4.0,Introduction to Philosophical Texts,2025
+"Philosophy, Law and Society",PHILOS 1B03,Philosophy,2,2,0,1,4.0,"Introduction to Philosophy, Law and Society",2025
+Philosophical Questions,PHILOS 1E03,Philosophy,2,2,0,1,4.0,Introduction to Philosophical Questions,2025
+Meaning in Life,PHILOS 1F03,Philosophy,2,2,0,1,4.0,Introduction to Meaning in Life,2025
+BeginnerÆs Polish I,POLISH 1Z03,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Polish I,2025
+BeginnerÆs Polish II,POLISH 1ZZ3,Languages,2,3,1,1,4.0,Introduction to BeginnerÆs Polish II,2025
+"Government, Politics, and Power",POLSCI 1AA3,Political Science,2,2,1,1,4.0,"Introduction to Government, Politics, and Power",2025
+Politics and Power in a Globalizing World,POLSCI 1AB3,Political Science,2,2,1,1,4.0,Introduction to Politics and Power in a Globalizing World,2025
+Survey of Psychology,PSYCH 1F03,Psychology,2,2,1,1,4.0,Introduction to Survey of Psychology,2025
+"Introduction to Psychology, Neuroscience & Behaviour",PSYCH 1X03,Psychology,2,2,1,1,4.0,"Introduction to Psychology, Neuroscience & Behaviour",2025
+"Foundations of Psychology, Neuroscience & Behaviour",PSYCH 1XX3,Psychology,2,2,1,1,4.0,"Introduction to Foundations of Psychology, Neuroscience & Behaviour",2025
+Intensive BeginnerÆs Russian I,RUSSIAN 1Z03,Languages,2,3,1,1,4.0,Introduction to Intensive BeginnerÆs Russian I,2025
+Intensive BeginnerÆs Russian II,RUSSIAN 1ZZ3,Languages,2,3,1,1,4.0,Introduction to Intensive BeginnerÆs Russian II,2025
+What on Earth is Religion?,SCAR 1B03,Religion,2,2,1,1,4.0,Introduction to What on Earth is Religion?,2025
+"The Big Questions: Introduction to Society, Culture & Religion",SCAR 1SC3,Religion,2,2,1,1,4.0,"Introduction to The Big Questions: Introduction to Society, Culture & Religion",2025
+"Canadian Society: Social Problems, Social Policy, and the Law",SOCIOL 1C03,Sociology,2,2,1,1,4.0,"Introduction to Canadian Society: Social Problems, Social Policy, and the Law",2025
+An Introduction to Sociology,SOCIOL 1Z03,Sociology,2,2,1,1,4.0,Introduction to An Introduction to Sociology,2025
+An Introduction to Social Psychology,SOCPSY 1Z03,Social Psychology,2,2,1,1,4.0,Introduction to An Introduction to Social Psychology,2025
+So You Think You Can Help? Introduction to Social Work I,SOCWORK 1AA3,Social Work,2,2,1,1,4.0,Introduction to So You Think You Can Help? Introduction to Social Work I,2025
+Re-Imagining Help: Introduction to Social Work II,SOCWORK 1BB3,Social Work,2,2,1,1,4.0,Introduction to Re-Imagining Help: Introduction to Social Work II,2025
+Intermediate Spanish I,SPANISH 1A03,Languages,2,3,1,1,4.0,Introduction to Intermediate Spanish I,2025
+Intermediate Spanish II,SPANISH 1AA3,Languages,2,3,1,1,4.0,Introduction to Intermediate Spanish II,2025
+Introduction to Sustainability,SUSTAIN 1S03,Sustainability,2,2,1,1,4.0,Introduction to Sustainability,2025
+Intersectionality and Sustainable Development,SUSTAIN 2IS3,Sustainability,2,2,1,1,4.0,Introduction to Intersectionality and Sustainable Development,2025
+Evaluating Problems & Sustainable Solutions,SUSTAIN 2S03,Sustainability,2,2,1,1,4.0,Introduction to Evaluating Problems & Sustainable Solutions,2025
+Exploring the United Nations Sustainable Development Goals,SUSTAIN 2SD3,Sustainability,2,2,1,1,4.0,Introduction to Exploring the United Nations Sustainable Development Goals,2025
+Advocating for Sustainability,SUSTAIN 2SS3,Sustainability,2,2,1,1,4.0,Introduction to Advocating for Sustainability,2025
+An Introduction to Work and Labour in Canada,WORKLABR 1A03,Work and Labour Studies,2,2,1,1,4.0,Introduction to An Introduction to Work and Labour in Canada,2025
+Technology and the Future of Work,WORKLABR 1D03,Work and Labour Studies,2,2,1,1,4.0,Introduction to Technology and the Future of Work,2025
+Navigating the World of Work,WORKLABR 1E03,Work and Labour Studies,2,2,1,1,4.0,Introduction to Navigating the World of Work,2025

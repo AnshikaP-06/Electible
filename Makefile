@@ -1,6 +1,7 @@
 # Electible Makefile
 # SE 2XC3 Lab 7.2 - Team Assignment
 # Team 33
+# Date: 2025-12-03
 
 CC = gcc
 CFLAGS = -std=c11 -Wall -Wextra -Iinclude

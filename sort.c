@@ -1,8 +1,26 @@
+/*
+ * sort.c
+ * Provides a simple interactive driver to demonstrate and test sorting on course arrays 
+ * prompts the user for a sort field and order, calls the corresponding sort function and print the sorted results
+ * Author: Anshika Patel
+ * Date: 2025-12-03
+ * Version: v2.0.0 
+*/
+
 #include <stdio.h>
 #include "../include/filter.h"
 #include "../include/sort.h"
 
+/*
+ * sort_main 
+ * Demonstrates sorting functioanlity using a small, hardcoded course array 
+ * Asks the user to choose the sort field and order, performs the sort, and prints the sorted list 
+ * No parameters 
+ * Returns: 
+ *      int (0 on success, 1 if an invalid sort choice)
+*/
 int sort_main(void) {
+    //following is onyl for testing this code locally. When the actual code is ran, it extracts the courses form the courses.csv file 
     Course courses[] = {
         { "Intro to Computing", "COMP-100", "COMP", 2, 3, 1, 1, 4.2f, "Basics", 2025 },
         { "Algorithms",         "COMP-200", "COMP", 4, 4, 1, 1, 4.8f, "Algo",   2025 },

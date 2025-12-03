@@ -152,37 +152,37 @@ int validate_course(Course course) {
 		return DATA_ERROR_VALIDATION;
 	}
 
-        if (strlen(course.title) == 0) {
-                return DATA_ERROR_VALIDATION;
-        }
+	if (strlen(course.title) == 0) {
+			return DATA_ERROR_VALIDATION;
+	}
 
-        if (strlen(course.subject_area) == 0) {
-                return DATA_ERROR_VALIDATION;
-        }
+	if (strlen(course.subject_area) == 0) {
+			return DATA_ERROR_VALIDATION;
+	}
 
-        if (course.difficulty < 1 || course.difficulty > 5) {
-                return DATA_ERROR_VALIDATION;
-        }
+	if (course.difficulty < 1 || course.difficulty > 5) {
+			return DATA_ERROR_VALIDATION;
+	}
 
-        if (course.workload < 1 || course.workload > 5) {
-                return DATA_ERROR_VALIDATION;
-        }
+	if (course.workload < 1 || course.workload > 5) {
+			return DATA_ERROR_VALIDATION;
+	}
 
-        if (course.has_exam != 0 && course.has_exam != 1) {
-                return DATA_ERROR_VALIDATION;
-        }
+	if (course.has_exam != 0 && course.has_exam != 1) {
+			return DATA_ERROR_VALIDATION;
+	}
 
-        if (course.has_midterm != 0 && course.has_midterm != 1) {
-                return DATA_ERROR_VALIDATION;
-        }
+	if (course.has_midterm != 0 && course.has_midterm != 1) {
+			return DATA_ERROR_VALIDATION;
+	}
 
-        if (course.rating < 0.0 || course.rating > 5.0) {
-                return DATA_ERROR_VALIDATION;
-        }
+	if (course.rating < 0.0 || course.rating > 5.0) {
+			return DATA_ERROR_VALIDATION;
+	}
 
-        if (course.year_offered < 2020 || course.year_offered > 2030) {
-                return DATA_ERROR_VALIDATION;
-        }
+	if (course.year_offered < 2020 || course.year_offered > 2030) {
+			return DATA_ERROR_VALIDATION;
+	}
 
 	return DATA_SUCCESS;
 
@@ -213,7 +213,7 @@ Course* load_courses(const char* filename, int* count) {
 		return NULL;
 	}
 
-	*count = 0 
+	*count = 0;
 	char line [2048];
 	int line_number = 0;
 
@@ -238,33 +238,41 @@ Course* load_courses(const char* filename, int* count) {
 
 	}
 
-	if (*count >= capacity) {
-		capacity *= 2;
-		Course* temp = (Course*)realloc(courses, capacity * sizeof(Course));
-		if (temp == NULL) {
-                	free(courses);
-                	fclose(file);
-                	*count = 0;
-                	return NULL;
+		if (*count >= capacity) {
+			capacity *= 2;
+			Course* temp = (Course*)realloc(courses, capacity * sizeof(Course));
+			if (temp == NULL) {
+				free(courses);
+				fclose(file);
+				*count = 0;
+				return NULL;
+			}
+
+			courses = temp;
 		}
 
-		courses = temp;
+		Course course;
+		strncpy(course.title, fields[0], sizeof(course.title) - 1);
+		course.title[sizeof(course.title) - 1] = '\0';
+
+
+		strncpy(course.subject_area, fields[2], sizeof(course.subject_area) - 1);
+		course.subject_area[sizeof(course.subject_area) - 1] = '\0';
+
+		course.difficulty = atoi(fields[3]);
+		course.workload = atoi(fields[4]);
+		course.has_exam = atoi(fields[5]);
+		course.has_midterm = atoi(fields[6]);
+		course.rating = (float)atof(fields[7]);
+
+		strncpy(course.description, fields[8], sizeof(course.description) - 1);
+		course.description[sizeof(course.description) - 1] = '\0';
+
+
+		courses[*count] = course;
+		(*count)++;
 	}
-
-	Course course;
-	strncpy(course.title, fields[0], sizeof(course.title) - 1);
-	course.title[sizeof(course.title) - 1] = '\0';
-
-
-	strncpy(course.subject_area, fields[2], sizeof(course.subject_area) - 1);
-	course.subject_area[sizeof(course.subject_area) - 1] = '\0';
-
-	course.difficulty = atoi(fields[3]);
-	course.workload = atoi(fields[4]);
-	course.has_exam = atoi(fields[5]);
-	course.has_midterm = atoi(fields[6]);
-	course.rating = (float)atof(fields[7]);
-
-	strncpy(course.description, fields[8], sizeof(course.description) - 1);
-	course.description[sizeof(course.description) - 1] = '\0':
-
+	
+	fclose(file);
+	return courses;
+}

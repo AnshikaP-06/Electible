@@ -1,6 +1,9 @@
+//
 // SE 2XC3 Lab 7.2: Electible
-// filter.h
-// Amanda Wu
+// filter.h - filter header file
+// Developer: Amanda Wu
+// Date: 2025-12-03
+// v2.0.0
 
 #ifndef FILTER_H
 #define FILTER_H

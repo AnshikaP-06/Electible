@@ -1,6 +1,9 @@
+// 
 // SE 2XC3 Lab 7.2: Electible
 // main.c
 // Team 33
+// Date: 2025-12-03
+// v2.0.0
 
 #include <stdio.h>
 #include <stdlib.h>

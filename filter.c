@@ -1,6 +1,9 @@
-// SE 2XC3 Lab 7.2: Electible
-// filter.c
-// Amanda Wu
+// 
+// SE 2XC3 Lab 7.2: Electible - First-Year Elective Finder
+// filter.c - filter implementation file for functions in filter.h
+// Developer: Amanda Wu
+// Date: 2025-12-03
+// Version: v2.0.0
 
 #include <stdio.h>
 #include <stdlib.h>

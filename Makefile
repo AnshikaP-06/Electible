@@ -36,10 +36,10 @@ coverage: CFLAGS += -fprofile-arcs -ftest-coverage
 coverage: LIBS += -lgcov
 coverage: clean
 	$(CC) $(CFLAGS) -o main $(SOURCES) $(LIBS)
-	$(CC) $(CFLAGS) -o test test.c data.c $(LIBS)
-	./test || true
+	chmod +x test.sh
+	./test.sh || true
 	./main < /dev/null || true
-	gcov main-*.gcda test-*.gcda 2>/dev/null || gcov *.c
+	gcov *.c
 	@echo ""
 	@echo "Coverage files generated. Check *.gcov files for details."
 	@echo "Use 'make clean' to remove coverage files."

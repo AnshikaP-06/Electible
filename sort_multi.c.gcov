@@ -1,0 +1,30 @@
+        -:    0:Source:sort_multi.c
+        -:    1:#include <stddef.h>
+        -:    2:#include "../include/sort.h"
+        -:    3:
+        -:    4:/* Simple stub: just sort by the first criterion */
+    #####:    5:void sort_multi_criteria(Course* courses, int count, SortCriteria* criteria, int num_criteria) {
+    #####:    6:    if (courses == NULL || count <= 1 || criteria == NULL || num_criteria <= 0) {
+    #####:    7:        return;
+        -:    8:    }
+        -:    9:
+    #####:   10:    int ascending = (criteria[0].order == ASCENDING) ? 1 : 0;
+        -:   11:
+    #####:   12:    switch (criteria[0].field) {
+    #####:   13:        case SORT_BY_DIFFICULTY:
+    #####:   14:            sort_by_difficulty(courses, count, ascending);
+    #####:   15:            break;
+    #####:   16:        case SORT_BY_WORKLOAD:
+    #####:   17:            sort_by_workload(courses, count, ascending);
+    #####:   18:            break;
+    #####:   19:        case SORT_BY_RATING:
+    #####:   20:            sort_by_rating(courses, count, ascending);
+    #####:   21:            break;
+    #####:   22:        case SORT_BY_COURSE_CODE:
+    #####:   23:            sort_by_course_code(courses, count, ascending);
+    #####:   24:            break;
+    #####:   25:        case SORT_BY_TITLE:
+    #####:   26:            sort_by_title(courses, count, ascending);
+    #####:   27:            break;
+        -:   28:    }
+        -:   29:}

@@ -1,0 +1,77 @@
+rm -f main test
+rm -f *.gcda *.gcno *.gcov main-*.gcda main-*.gcno test-*.gcda test-*.gcno
+gcc -std=c11 -Wall -Wextra -Iinclude -fprofile-arcs -ftest-coverage -o main main.c data.c filter.c sort.c sort_code.c sort_difficulty.c sort_rating.c sort_title.c sort_workload.c sort_multi.c ui.c -lm -lgcov
+gcc -std=c11 -Wall -Wextra -Iinclude -fprofile-arcs -ftest-coverage -o test test.c data.c -lm -lgcov
+./test || true
+Test passed: loaded 25 courses from data/courses.csv
+./main < /dev/null || true
+Loading courses from data/courses.csv...
+Successfully loaded 25 courses.
+
+----------------------------------------------------------------------------------------------------------
+[1m[36m--- ELECTIBLE: McMaster's First-Year Elective Finder ---[0m
+----------------------------------------------------------------------------------------------------------
+
+[32m1.[0m Browse All Courses
+[32m2.[0m Filter Courses
+[32m3.[0m Sort Courses
+[32m4.[0m Add New Course
+[32m5.[0m View Recommendations
+[32m6.[0m Help
+[32m7.[0m Exit
+
+Enter choice (1-7): 
+No more input available (EOF). Exiting.
+gcov main-*.gcda test-*.gcda 2>/dev/null || gcov *.c
+File 'data.c'
+Lines executed:51.21% of 537
+Creating 'data.c.gcov'
+
+File 'filter.c'
+Lines executed:0.00% of 213
+Creating 'filter.c.gcov'
+
+File 'main.c'
+Lines executed:17.31% of 52
+Creating 'main.c.gcov'
+
+File 'sort.c'
+Lines executed:0.00% of 31
+Creating 'sort.c.gcov'
+
+File 'sort_code.c'
+Lines executed:0.00% of 19
+Creating 'sort_code.c.gcov'
+
+File 'sort_difficulty.c'
+Lines executed:0.00% of 18
+Creating 'sort_difficulty.c.gcov'
+
+File 'sort_multi.c'
+Lines executed:0.00% of 20
+Creating 'sort_multi.c.gcov'
+
+File 'sort_rating.c'
+Lines executed:0.00% of 22
+Creating 'sort_rating.c.gcov'
+
+File 'sort_title.c'
+Lines executed:0.00% of 23
+Creating 'sort_title.c.gcov'
+
+File 'sort_workload.c'
+Lines executed:0.00% of 22
+Creating 'sort_workload.c.gcov'
+
+File 'ui.c'
+Lines executed:12.23% of 278
+Creating 'ui.c.gcov'
+
+File 'test.c'
+Lines executed:77.78% of 9
+Creating 'test.c.gcov'
+
+Lines executed:26.13% of 1244
+
+Coverage files generated. Check *.gcov files for details.
+Use 'make clean' to remove coverage files.

@@ -1,0 +1,26 @@
+        -:    0:Source:test.c
+        -:    1:// SE 2XC3 Lab 7.2: Electible
+        -:    2:// Super simple test: can we load the CSV?
+        -:    3:
+        -:    4:#include <stdio.h>
+        -:    5:#include <stdlib.h>
+        -:    6:#include "include/data.h"
+        -:    7:
+        1:    8:int main(void) {
+        1:    9:    int count = 0;
+        -:   10:
+        -:   11:    // Try to load the normal data file
+        1:   12:    Course *courses = load_courses("data/courses.csv", &count);
+        -:   13:
+        1:   14:    if (courses == NULL || count <= 0) {
+    #####:   15:        printf("Test failed: could not load courses from data/courses.csv\n");
+    #####:   16:        return 1;  // non-zero = test failed
+        -:   17:    }
+        -:   18:
+        1:   19:    printf("Test passed: loaded %d courses from data/courses.csv\n", count);
+        -:   20:
+        -:   21:    // clean up
+        1:   22:    free_courses(courses);
+        -:   23:
+        1:   24:    return 0;  // zero = test passed
+        -:   25:}

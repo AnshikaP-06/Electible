@@ -12,88 +12,48 @@
         -:   11:#define DEFAULT_DATA_FILE "data/courses.csv"
         -:   12:
         -:   13:// print help info
-function display_usage called 0 returned 0% blocks executed 0%
     #####:   14:void display_usage(const char* program_name) {
     #####:   15:    printf("Electible - McMaster First-Year Elective Finder\n");
-call    0 never executed
     #####:   16:    printf("SE 2XC3 Lab 7.2 Team Assignment\n\n");
-call    0 never executed
     #####:   17:    printf("Usage:\n");
-call    0 never executed
     #####:   18:    printf("%s [OPTIONS] [data_file]\n\n", program_name);
-call    0 never executed
     #####:   19:    printf("Usage Explanation:\n");
-call    0 never executed
     #####:   20:    printf("Running this program launches the Electible interactive menu system.\n");
-call    0 never executed
     #####:   21:    printf("Once started, you can browse courses, apply filters, sort results,add new courses, or view recommendations.\n\n");
-call    0 never executed
     #####:   22:    printf("Arguments:\n");
-call    0 never executed
     #####:   23:    printf("  data_file\n");
-call    0 never executed
     #####:   24:    printf("      The CSV must follow Electible's expected format:\n");
-call    0 never executed
     #####:   25:    printf("        - One course per line\n");
-call    0 never executed
     #####:   26:    printf("        - Fields separated by commas\n");
-call    0 never executed
     #####:   27:    printf("        - Columns (in order):\n");
-call    0 never executed
     #####:   28:    printf("            Course Code, Title, Subject, Difficulty, Workload, Rating\n");
-call    0 never executed
         -:   29:
     #####:   30:    printf("Options:\n");
-call    0 never executed
     #####:   31:    printf("  --help       Show this help message\n\n");
-call    0 never executed
     #####:   32:    printf("Description:\n");
-call    0 never executed
     #####:   33:    printf("This app will help Mcmaster first year eng students to find and explore elective based on their preferences.\n\n");
-call    0 never executed
     #####:   34:    printf("1.Browse All Courses: View complete list of available elctives.\n");
-call    0 never executed
     #####:   35:    printf("2.Filter Courses: Narrow down courses by subject, difficulty, workload, etc.\n");
-call    0 never executed
     #####:   36:    printf("3.Sort Courses: Organize courses by a selected field and order.\n");
-call    0 never executed
     #####:   37:    printf("4.Add New Courses: Add and rate courses to the exiting course. \n");
-call    0 never executed
     #####:   38:    printf("5. Recommendations: Top 10 recommended courses based on high ratings and moderate difficultly.\n");
-call    0 never executed
     #####:   39:    print_separator();
-call    0 never executed
     #####:   40:    printf("Examples:\n");
-call    0 never executed
     #####:   41:    printf("  %s\n", program_name);
-call    0 never executed
     #####:   42:    printf("       Run using the default data file.\n\n");
-call    0 never executed
     #####:   43:    printf("  %s data/my_courses.csv\n", program_name);
-call    0 never executed
     #####:   44:    printf("       Run using a custom course CSV file.\n\n");
-call    0 never executed
     #####:   45:    printf("  %s --help\n", program_name);
-call    0 never executed
     #####:   46:    printf("       Display this help message.\n\n");
-call    0 never executed
     #####:   47:}
         -:   48:
-function main called 1 returned 0% blocks executed 40%
         1:   49:int main(int argc, char* argv[]) {
         1:   50:    const char* data_file = DEFAULT_DATA_FILE;
         -:   51:
         -:   52:    // check if user typed --help
         1:   53:    if (argc > 1) {
-branch  0 taken 0% (fallthrough)
-branch  1 taken 100%
     #####:   54:        if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0) {
-branch  0 never executed (fallthrough)
-branch  1 never executed
-branch  2 never executed (fallthrough)
-branch  3 never executed
     #####:   55:            display_usage(argv[0]);
-call    0 never executed
     #####:   56:            return 0;
         -:   57:        }
     #####:   58:        data_file = argv[1];
@@ -101,35 +61,23 @@ call    0 never executed
         -:   60:
         -:   61:    // load courses from the CSV file
         1:   62:    printf("Loading courses from %s...\n", data_file);
-call    0 returned 100%
         1:   63:    int count = 0;
         1:   64:    Course* courses = load_courses(data_file, &count);
-call    0 returned 100%
         -:   65:
         1:   66:    if (courses == NULL || count == 0) {
-branch  0 taken 100% (fallthrough)
-branch  1 taken 0%
-branch  2 taken 0% (fallthrough)
-branch  3 taken 100%
     #####:   67:        fprintf(stderr, "Error: Failed to load courses from %s\n", data_file);
-call    0 never executed
     #####:   68:        fprintf(stderr, "Make sure the file exists and is formatted correctly.\n");
-call    0 never executed
     #####:   69:        fprintf(stderr, "Run '%s --help' for more info.\n", argv[0]);
-call    0 never executed
     #####:   70:        return 1;
         -:   71:    }
         -:   72:
         1:   73:    printf("Successfully loaded %d courses.\n\n", count);
-call    0 returned 100%
         -:   74:
         -:   75:    // start the main menu
         1:   76:    handle_user_interaction(&courses, &count, data_file);
-call    0 returned 0%
         -:   77:
         -:   78:    // free up memory
     #####:   79:    free_courses(courses);
-call    0 never executed
         -:   80:
     #####:   81:    return 0;
         -:   82:}

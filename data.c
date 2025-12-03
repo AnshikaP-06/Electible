@@ -1,6 +1,7 @@
 //
 // SE 2XC3 Lab 7.2: Electible - First-Year Elective Finder
 // data.c
+// Implements data handling functions for Course records
 // Developer: Khushi Ved
 // Date: 2025-12-03
 // Version: v2.0.0

@@ -39,7 +39,7 @@ coverage: clean
 	chmod +x test.sh
 	./test.sh || true
 	./main < /dev/null || true
-	gcov *.c
+	gcov *.c || true
 	@echo ""
 	@echo "Coverage files generated. Check *.gcov files for details."
 	@echo "Use 'make clean' to remove coverage files."

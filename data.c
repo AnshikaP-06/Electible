@@ -269,10 +269,122 @@ Course* load_courses(const char* filename, int* count) {
 		course.description[sizeof(course.description) - 1] = '\0';
 
 
-		courses[*count] = course;
-		(*count)++;
+		fclose(file);
+		return courses;
 	}
-	
-	fclose(file);
-	return courses;
+
+	    fclose(file);
+    return courses;
+}
+
+
+int save_courses(Course* courses, int count, const char* filename) {
+    FILE* file = fopen(filename, "w");
+    if (file == NULL) {
+        return DATA_ERROR_WRITE;
+    }
+
+
+    fprintf(file, "title,course_code,subject_area,difficulty,workload,has_exam,has_midterm,rating,description,year_offered\n");
+
+    for (int i = 0; i < count; i++) {
+        char escaped_title[200];
+        char escaped_description[1000];
+
+        escape_csv_field(escaped_title, courses[i].title, sizeof(escaped_title));
+        escape_csv_field(escaped_description, courses[i].description, sizeof(escaped_description));
+
+        fprintf(file, "%s,%s,%s,%d,%d,%d,%d,%.1f,%s,%d\n",
+                escaped_title,
+                courses[i].course_code,
+                courses[i].subject_area,
+                courses[i].difficulty,
+                courses[i].workload,
+                courses[i].has_exam,
+                courses[i].has_midterm,
+                courses[i].rating,
+                escaped_description,
+                courses[i].year_offered);
+    }
+
+    fclose(file);
+    return DATA_SUCCESS;
+}
+
+int save_courses(Course* courses, int count, const char* filename) {
+    FILE* file = fopen(filename, "w");
+    if (file == NULL) {
+        return DATA_ERROR_WRITE;
+    }
+
+
+    fprintf(file, "title,course_code,subject_area,difficulty,workload,has_exam,has_midterm,rating,description,year_offered\n");
+
+    for (int i = 0; i < count; i++) {
+        char escaped_title[200];
+        char escaped_description[1000];
+
+        escape_csv_field(escaped_title, courses[i].title, sizeof(escaped_title));
+        escape_csv_field(escaped_description, courses[i].description, sizeof(escaped_description));
+
+        fprintf(file, "%s,%s,%s,%d,%d,%d,%d,%.1f,%s,%d\n",
+                escaped_title,
+                courses[i].course_code,
+                courses[i].subject_area,
+                courses[i].difficulty,
+                courses[i].workload,
+                courses[i].has_exam,
+                courses[i].has_midterm,
+                courses[i].rating,
+                escaped_description,
+                courses[i].year_offered);
+    }
+
+    fclose(file);
+    return DATA_SUCCESS;
+}
+
+int add_course(Course** courses, int* count, Course new_course) {
+
+    if (validate_course(new_course) != DATA_SUCCESS) {
+        return DATA_ERROR_VALIDATION;
+    }
+
+
+    Course* temp = (Course*)realloc(*courses, (*count + 1) * sizeof(Course));
+    if (temp == NULL) {
+        return DATA_ERROR_MEMORY;
+    }
+
+    *courses = temp;
+    (*courses)[*count] = new_course;
+    (*count)++;
+
+    return DATA_SUCCESS;
+}
+
+
+void free_courses(Course* courses) {
+    if (courses != NULL) {
+        free(courses);
+    }
+}
+
+const char* get_data_error_message(int error_code) {
+    switch (error_code) {
+        case DATA_SUCCESS:
+            return "Success";
+        case DATA_ERROR_FILE_NOT_FOUND:
+            return "File not found";
+        case DATA_ERROR_INVALID_FORMAT:
+            return "Invalid file format";
+        case DATA_ERROR_MEMORY:
+            return "Memory allocation failed";
+        case DATA_ERROR_VALIDATION:
+            return "Course validation failed";
+        case DATA_ERROR_WRITE:
+            return "Error writing to file";
+        default:
+            return "Unknown error";
+    }
 }

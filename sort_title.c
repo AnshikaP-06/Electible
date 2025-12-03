@@ -1,7 +1,7 @@
 /*
  * sort_title.c
  * Implements sorting of course arrays by the titel field using a selection sort approach
- * Author: Anshika Patel 
+ * Author: Anshika Patel
  * Date: 2025-12-03
  * version: v2.0.0
 */
@@ -16,10 +16,10 @@
  * lexicographically compates titles at indices i and j
  * paramters
  * 		- courses: arrays of course
- * 		- i: index of the first element to compare 
+ * 		- i: index of the first element to compare
  * 		- j: index of the second element to compare
- * 		- ascending: 1 for ascending order; 0 for descending order 
- * Returns: 
+ * 		- ascending: 1 for ascending order; 0 for descending order
+ * Returns:
  * 		- negative int if courses[i] should come before courses[j]
  * 		- positive int if courses[i] should come after courses[j]
  * 		- 0 if equal rating
@@ -47,12 +47,12 @@ static int compare_course_title(Course courses[], int i, int j, int ascending){
 }
 
 /*
- * sort_by_title 
- * sorts course array by title using selection sort 
+ * sort_by_title
+ * sorts course array by title using selection sort
  * Parameters
  * 		- courses: arrays of course
- * 		- count: number of elements 
- * 		- ascending: 1 for ascending order; 0 for descending order 
+ * 		- count: number of elements
+ * 		- ascending: 1 for ascending order; 0 for descending order
 */
 void sort_by_title(Course courses[], int count, int ascending){
 	if (courses == NULL || count <= 1){

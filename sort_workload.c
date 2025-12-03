@@ -1,7 +1,7 @@
 /*
  * sort_workload.c
  * Implements sorting of course arrays by the workload field using a selection sort approach
- * Author: Anshika Patel 
+ * Author: Anshika Patel
  * Date: 2025-12-03
  * version: v2.0.0
 */
@@ -15,10 +15,10 @@
  * comapres workload values at indices i and j
  * paramters
  * 		- courses: arrays of course
- * 		- i: index of the first element to compare 
+ * 		- i: index of the first element to compare
  * 		- j: index of the second element to compare
- * 		- ascending: 1 for ascending order; 0 for descending order 
- * Returns: 
+ * 		- ascending: 1 for ascending order; 0 for descending order
+ * Returns:
  * 		- negative int if courses[i] should come before courses[j]
  * 		- positive int if courses[i] should come after courses[j]
  * 		- 0 if equal rating
@@ -43,12 +43,12 @@ static int compare_course_workload(Course courses[], int i, int j, int ascending
 }
 
 /*
- * sort_by_workload 
+ * sort_by_workload
  * sorts the arrayy of course by workload using selection sort
  * Parameters
  * 		- courses: arrays of course
- * 		- count: number of elements 
- * 		- ascending: 1 for ascending order; 0 for descending order 
+ * 		- count: number of elements
+ * 		- ascending: 1 for ascending order; 0 for descending order
 */
 void sort_by_workload(Course courses[], int count, int ascending){
 	if (courses == NULL || count <= 1){

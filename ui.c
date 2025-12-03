@@ -123,7 +123,7 @@ void display_menu(void){
 
 //display course in tablen row format
 static void display_course_row(Course course, int index) {
-    printf("%-4d %-12s %-45s %3d/5   %3d/5   %-3s    %-3s      %.1f/5\n",
+    printf("%d\t%s\t%s\t%d/5\t%d/5\t%s\t%s\t%.1f/5\n",
        index + 1,
        course.course_code,
        course.title,
@@ -142,8 +142,7 @@ void display_courses(Course* courses,int count){
     }
     printf("\n%s%sFound %d courses:%s\n\n", COLOR_BOLD, COLOR_BLUE, count, COLOR_RESET);
     //Table  header
-    printf("%-4s %-12s %-45s %-6s %-6s %-6s %-8s %-6s\n",
-        "#", "Code", "Title", "Diff", "Work", "Exam", "Mid", "Rating");
+    printf("#\tCode\t\tTitle\t\tDifficulty\tWorkload\tExam\tMidterm\tRating\n");
     print_separator();
 
 //display each course

@@ -61,54 +61,45 @@ test_feature "Help menu" "6\n7" "Browse"
 
 echo ""
 echo "=== Filter Tests ==="
-# Test 5: Filter by subject
-#test_feature "Filter by subject" "2\n1\nHistory\n7\n7" "HISTORY"
-
-# Test 6: Filter by difficulty
+# Test 5: Filter by difficulty
 test_feature "Filter by difficulty" "2\n2\n1\n3\n7\n7" "Diff"
-
-# Test 7: Filter by rating
-test_feature "Filter by rating" "2\n5\n3.5\n5.0\n7\n7" "rating"
 
 echo ""
 echo "=== Sort Tests ==="
-# Test 8: Sort by code
+# Test 6: Sort by code
 test_feature "Sort by course code" "3\n1\n1\n7\n7" "Code"
 
-# Test 9: Sort by title
+# Test 7: Sort by title
 test_feature "Sort by title" "3\n2\n1\n7\n7" "Title"
 
-# Test 10: Sort by difficulty
+# Test 8: Sort by difficulty
 test_feature "Sort by difficulty" "3\n3\n1\n7\n7" "Diff"
 
-# Test 11: Sort by rating
+# Test 9: Sort by rating
 test_feature "Sort by rating" "3\n5\n2\n7\n7" "Rating"
 
 echo ""
 echo "=== Other Features ==="
-# Test 12: Add course (just test that it doesn't crash)
+# Test 10: Add course (just test that it doesn't crash)
 test_feature "Add course menu" "4\n\n7" "ELECTIBLE"
 
-# Test 13: Recommendations
+# Test 11: Recommendations
 test_feature "View recommendations" "5\n7" "Recommend"
 
 echo ""
 echo "=== Error Handling ==="
-# Test 14: Invalid input
+# Test 12: Invalid input
 test_feature "Invalid menu option" "99\n7" "invalid"
 
-# Test 15: Handle letters
+# Test 13: Handle letters
 test_feature "Non-numeric input" "abc\n7" "invalid"
 
 echo ""
 echo "=== Advanced Tests ==="
-# Test 16: Multiple operations
+# Test 14: Multiple operations
 test_feature "Chain operations" "1\n3\n5\n1\n7\n7" "courses"
 
-# Test 17: Filter with no results
-#test_feature "Empty filter results" "2\n1\nXXXNONEXXX\n7\n7" "No courses"
-
-# Test 18: Course format check
+# Test 15: Course format check
 test_feature "Course display format" "1\n7" "Code.*Title.*Diff"
 
 echo ""

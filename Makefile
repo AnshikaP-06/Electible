@@ -19,8 +19,8 @@ run: all
 
 # Run with test input
 test:
-	$(CC) $(CFLAGS) -o test test.c data.c $(LIBS)
-	./test
+	chmod +x test.sh
+	./test.sh
 
 
 # Clean up compiled files

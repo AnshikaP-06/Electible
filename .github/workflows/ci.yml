@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: make all
 
-      - name: Run minimal test
+      - name: Run minimal tests
         run: make test
 
       - name: Verify executable
@@ -60,8 +60,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          chmod +x ./test
-          ./test > test_results.txt 2>&1
+          make test
 
       - name: Run Coverage
         run: make coverage > gcov.txt

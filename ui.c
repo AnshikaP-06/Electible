@@ -37,7 +37,7 @@ void clear_input_buffer(void){
 
 //seperator line
 void print_separator(void){
-    printf("----------------------------------------------------------------------------------------------------------\n");
+    printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 }
 
 //pause and wait for user
@@ -123,7 +123,7 @@ void display_menu(void){
 
 //display course in tablen row format
 static void display_course_row(Course course, int index) {
-    printf("%d\t%s\t%s\t%d/5\t%d/5\t%s\t%s\t%.1f/5\n",
+    printf("%-3d %-14s %-80s %d/5       %d/5       %-8s %-10s %.1f/5\n",
        index + 1,
        course.course_code,
        course.title,
@@ -142,8 +142,11 @@ void display_courses(Course* courses,int count){
     }
     printf("\n%s%sFound %d courses:%s\n\n", COLOR_BOLD, COLOR_BLUE, count, COLOR_RESET);
     //Table  header
-    printf("#\tCode\t\tTitle\t\tDifficulty\tWorkload\tExam\tMidterm\tRating\n");
-    print_separator();
+    printf("%-3s %-14s %-80s %-10s %-10s %-8s %-10s %-8s\n",
+       "#", "Code", "Title", "Diff", "Work", "Exam", "Midterm", "Rating");
+       print_separator();
+
+
 
 //display each course
     for (int i = 0; i < count; i++) {
@@ -159,7 +162,6 @@ void display_course_detail(Course course){
     print_separator();
     printf("%s%s%s%s\n",COLOR_BOLD,COLOR_CYAN,course.title,COLOR_RESET);
     printf("Course Code:     %s\n", course.course_code);
-    printf("Subject Area:    %s\n",course.subject_area);
     printf("Difficulty:      %d/5\n",course.difficulty);
     printf("Workload:        %d/5\n", course.workload);
     printf("Has Exam:        %s\n",course.has_exam ? "Yes" : "No");
@@ -175,10 +177,6 @@ FilterCriteria get_filter_preferences(void){
 
     printf("\n%s%s------Filter Courses------%s\n", COLOR_BOLD, COLOR_CYAN,COLOR_RESET);
     printf("Leave filters blank or enter -1 to skip.\n\n");
-
-    //subject area filter
-    printf("Filter by subject area? (Options: Math, Business, etc.)\n");
-    get_string_input("Subject area (ENTER to skip): ", criteria.subject_area, sizeof(criteria.subject_area));
 
     //dificulty
     printf("\nFilter by difficulty?(1-5)\n");
@@ -285,7 +283,6 @@ Course get_new_course_input(void){
     printf("\n%s%s=== Add New Course ===%s\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
     get_string_input("Course title: ", course.title, sizeof(course.title));
     get_string_input("Course code (e.g., SFWRENG 2XC3): ", course.course_code, sizeof(course.course_code));
-    get_string_input("Subject area: ", course.subject_area, sizeof(course.subject_area));
 
     course.difficulty = get_int_input("Difficulty (1-5): ", 1, 5);
     course.workload = get_int_input("Workload (1-5): ", 1, 5);

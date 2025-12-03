@@ -8,7 +8,7 @@
 // struct holds all the info about a course
 typedef struct {
     char title[100];
-    char course_code[10];
+    char course_code[16];
     char subject_area[50];
     int difficulty;        // 1-5 scale
     int workload;          // 1-5 scale

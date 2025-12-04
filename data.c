@@ -139,6 +139,7 @@ void escape_csv_field(char* dest, const char* src, int max_len) {
 	}
 }
 
+
 /**
  * Validates that the fields of a Course struct are in valid ranges
  *
@@ -147,48 +148,6 @@ void escape_csv_field(char* dest, const char* src, int max_len) {
  * For example the difficulty and workload between 1 and 5, rating between 0.0 and 5.0
  *
  */
-// int validate_course(Course course) {
-// 	if (strlen(course.course_code) == 0) {
-// 		return DATA_ERROR_VALIDATION;
-// 	}
-
-// 	if (strlen(course.title) == 0) {
-// 			return DATA_ERROR_VALIDATION;
-// 	}
-
-// 	if (strlen(course.subject_area) == 0) {
-// 			return DATA_ERROR_VALIDATION;
-// 	}
-
-// 	if (course.difficulty < 1 || course.difficulty > 5) {
-// 			return DATA_ERROR_VALIDATION;
-// 	}
-
-// 	if (course.workload < 1 || course.workload > 5) {
-// 			return DATA_ERROR_VALIDATION;
-// 	}
-
-// 	if (course.has_exam != 0 && course.has_exam != 1) {
-// 			return DATA_ERROR_VALIDATION;
-// 	}
-
-// 	if (course.has_midterm != 0 && course.has_midterm != 1) {
-// 			return DATA_ERROR_VALIDATION;
-// 	}
-
-// 	if (course.rating < 0.0 || course.rating > 5.0) {
-// 			return DATA_ERROR_VALIDATION;
-// 	}
-
-// 	if (course.year_offered < 2020 || course.year_offered > 2030) {
-// 			return DATA_ERROR_VALIDATION;
-// 	}
-
-// 	return DATA_SUCCESS;
-
-// }
-
-
 int validate_course(Course course) {
     if (strlen(course.course_code) == 0 ||
         strlen(course.title) == 0 ||
@@ -309,6 +268,14 @@ Course* load_courses(const char* filename, int* count) {
     return courses;
 }
 
+/**
+ *
+ * Saves an array Course records to a CSV file
+ *
+ * The function overwrites the file if it already exists
+ * String fields are passed through escape_csv_field to for proper CSV formatting
+ * 
+ */
 
 int save_courses(Course* courses, int count, const char* filename) {
     FILE* file = fopen(filename, "w");
@@ -343,6 +310,15 @@ int save_courses(Course* courses, int count, const char* filename) {
     return DATA_SUCCESS;
 }
 
+/**
+ *
+ * Adds a new course record to a dynamic course array
+ *
+ * The new_course is validated, if failed, the courses array and count don't change
+ * and the function returns DATA_ERROR_VALIDATION
+ * 
+ */
+
 int add_course(Course** courses, int* count, Course new_course) {
 
     if (validate_course(new_course) != DATA_SUCCESS) {
@@ -363,12 +339,30 @@ int add_course(Course** courses, int* count, Course new_course) {
 }
 
 
+
+/**
+ *
+ * Frees the dynamic courses array
+ *
+ * The helper releases the memory previously allocated for the courses array
+ * If the pointer is NULL, the function does nothing
+ * 
+ */
 void free_courses(Course* courses) {
     if (courses != NULL) {
         free(courses);
     }
 }
 
+/**
+ *
+ * Returns a human-readable error message for a given error code
+ *
+ * The function returns a string describing the error corresponding to the DATA_* 
+ * return codes
+ * Unknown codes are mapped to "Unknown error"
+ * 
+ */
 const char* get_data_error_message(int error_code) {
     switch (error_code) {
         case DATA_SUCCESS:

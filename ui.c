@@ -174,8 +174,8 @@ static void display_course_row(Course course, int index){
 }
 
 /*display_courses
-*prints list of courses in table 
-*param: courses (pointer to an array), count (number of courses in array) 
+*prints list of courses in table
+*param: courses (pointer to an array), count (number of courses in array)
 */
 void display_courses(Course* courses,int count){
     if (courses==NULL ||count<= 0){
@@ -301,11 +301,11 @@ printf("\nFilter by minimum rating? (0.0-5.0)\n");
 }
 
 /*get_sort_preferences
-*get sort preferences from user 
+*get sort preferences from user
 *parameters:
 *       criteria:if success will point to array of SortCriteria
         num_criteria: how many criteria are stored
-*lets user pick filed 
+*lets user pick filed
 *lets user pick ascending or descending
 *allocated memory for *criteria
 *if that fails, *num_criteria is set to 0 and *criteria stays NULL
@@ -382,7 +382,7 @@ void display_help(void){
 
 /*display_recommendations
 *shows list of  recommended courses based on high ratings and moderate difficulty
-*paramters: 
+*paramters:
         courses:pointer to full list of courses
         count: number of courses in that list
 *builds FilterCriteria

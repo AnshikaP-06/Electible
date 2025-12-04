@@ -1,7 +1,7 @@
 /*
  * sort_multi.c
- * provides a stub implementation for multi-criteria sorting 
- * Author: Anshika Patel 
+ * provides a stub implementation for multi-criteria sorting
+ * Author: Anshika Patel
  * Date: 2025-12-03
  * version: v2.0.0
 */
@@ -12,10 +12,10 @@
 /*
  * sort_mutli_criteria
  * sorts courses using a list of criteria
- * Parameters: 
+ * Parameters:
  *      - courses: array of Courses
- *      - count: number of elements in courses 
- *      - criteria: array of SortCriteria description 
+ *      - count: number of elements in courses
+ *      - criteria: array of SortCriteria description
  *      - num_criteria: number of criteria passed
 */
 void sort_multi_criteria(Course* courses, int count, SortCriteria* criteria, int num_criteria) {

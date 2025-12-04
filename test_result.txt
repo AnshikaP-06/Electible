@@ -1,0 +1,53 @@
+Starting Electible tests...
+
+Files found OK
+
+=== Basic Tests ===
+Testing: Program exits cleanly
+  [PASS]
+Testing: Main menu displays
+  [PASS]
+Testing: Browse all courses
+  [PASS]
+Testing: Help menu
+  [PASS]
+
+=== Filter Tests ===
+Testing: Filter by difficulty
+  [PASS]
+
+=== Sort Tests ===
+Testing: Sort by course code
+  [PASS]
+Testing: Sort by title
+  [PASS]
+Testing: Sort by difficulty
+  [PASS]
+Testing: Sort by rating
+  [PASS]
+
+=== Other Features ===
+Testing: Add course menu
+  [PASS]
+Testing: View recommendations
+  [PASS]
+
+=== Error Handling ===
+Testing: Invalid menu option
+  [PASS]
+Testing: Non-numeric input
+  [PASS]
+
+=== Advanced Tests ===
+Testing: Chain operations
+  [PASS]
+Testing: Course display format
+  [PASS]
+
+================================
+Test Results:
+  Passed: 15
+  Failed: 0
+  Total:  15
+
+All tests passed!

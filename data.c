@@ -274,7 +274,7 @@ Course* load_courses(const char* filename, int* count) {
  *
  * The function overwrites the file if it already exists
  * String fields are passed through escape_csv_field to for proper CSV formatting
- * 
+ *
  */
 
 int save_courses(Course* courses, int count, const char* filename) {
@@ -316,7 +316,7 @@ int save_courses(Course* courses, int count, const char* filename) {
  *
  * The new_course is validated, if failed, the courses array and count don't change
  * and the function returns DATA_ERROR_VALIDATION
- * 
+ *
  */
 
 int add_course(Course** courses, int* count, Course new_course) {
@@ -346,7 +346,7 @@ int add_course(Course** courses, int* count, Course new_course) {
  *
  * The helper releases the memory previously allocated for the courses array
  * If the pointer is NULL, the function does nothing
- * 
+ *
  */
 void free_courses(Course* courses) {
     if (courses != NULL) {
@@ -358,10 +358,10 @@ void free_courses(Course* courses) {
  *
  * Returns a human-readable error message for a given error code
  *
- * The function returns a string describing the error corresponding to the DATA_* 
+ * The function returns a string describing the error corresponding to the DATA_*
  * return codes
  * Unknown codes are mapped to "Unknown error"
- * 
+ *
  */
 const char* get_data_error_message(int error_code) {
     switch (error_code) {
